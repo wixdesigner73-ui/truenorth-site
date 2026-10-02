@@ -1,0 +1,880 @@
+<title>True North Homepage</title>
+<meta name="description" content="Independent guidance, checklists and tools for home builders and renovators, based on more than 40 years of real building experience on the NSW South Coast.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* True North is deliberately a single light theme: the brief asks for "light, bright, clean and uncluttered". */
+:root{
+  color-scheme: light;
+  --blue:#29aacb;          /* logo blue  C69 M9 Y14 K0 */
+  --blue-deep:#0d6d8a;     /* text-safe blue */
+  --blue-ink:#0b4458;
+  --yellow:#f5ce2e;        /* logo yellow C2 M17 Y92 K0 */
+  --yellow-soft:#fdf3c4;
+  --green:#3b8a3e;         /* GreenSmart green, used sparingly */
+  --red:#c8412b;           /* highlight for warnings only */
+  --ink:#15313d;
+  --ink-2:#44606b;
+  --ink-3:#6f8790;
+  --paper:#ffffff;
+  --mist:#f1f7f9;
+  --mist-2:#e2eef2;
+  --line:#d3e3e9;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --wrap:1200px;
+  --gutter:clamp(16px,4vw,40px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--blue-deep)}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-radius:2px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:.005em}
+h2{font-size:clamp(2rem,4.2vw,3rem);text-transform:uppercase}
+h3{font-size:1.45rem;text-transform:uppercase}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-deep);display:flex;align-items:center;gap:.6em}
+.eyebrow::before{content:"";width:22px;height:3px;background:var(--yellow);flex:none}
+.lede{font-size:1.15rem;color:var(--ink-2);max-width:62ch}
+.section{padding-block:clamp(56px,8vw,104px)}
+.section-head{display:grid;gap:14px;margin-bottom:clamp(28px,4vw,48px)}
+.btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--display);font-weight:600;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:.72em 1.3em;border-radius:3px;border:2px solid transparent;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--blue-deep)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-yellow{background:var(--yellow);color:var(--ink)}
+.btn-yellow:hover{background:#e7bd12}
+.chip{display:inline-flex;align-items:center;gap:.4em;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:.28em .6em;border-radius:2px;background:var(--mist);color:var(--ink-2);white-space:nowrap}
+.chip.pdf{background:var(--yellow-soft);color:#6b5400}
+.chip.vid{background:#dff1f7;color:var(--blue-ink)}
+.chip.green{background:#e3f1e3;color:#255c27}
+.icon{width:1em;height:1em;flex:none}
+
+/* ---------- top bar + header ---------- */
+.topbar{background:var(--ink);color:#cfe4ec;font-size:.85rem}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:8px;flex-wrap:wrap}
+.topbar a{color:#cfe4ec;text-decoration:none}
+.topbar a:hover{color:var(--yellow)}
+.social{display:flex;gap:16px}
+.header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.header .wrap{display:flex;align-items:center;gap:20px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);flex:none}
+.brand img{width:108px;height:auto}
+@media (max-width:600px){.brand img{width:78px}}
+.brand span{font-family:var(--display);font-weight:700;font-size:1.3rem;line-height:1;text-transform:uppercase;letter-spacing:.04em}
+.brand small{display:block;font-family:var(--mono);font-weight:400;font-size:.62rem;letter-spacing:.1em;color:var(--ink-3);margin-top:4px}
+.nav{margin-left:auto;display:flex;align-items:center;gap:2px}
+.nav a{font-family:var(--display);font-weight:600;font-size:1rem;text-transform:uppercase;letter-spacing:.04em;color:var(--ink);text-decoration:none;padding:8px 10px;border-radius:3px;white-space:nowrap}
+.nav a:hover{background:var(--mist);color:var(--blue-deep)}
+.nav a.start{background:var(--yellow);color:var(--ink);margin-left:6px}
+.nav a.start:hover{background:#e7bd12}
+.icon-btn{display:grid;place-items:center;width:42px;height:42px;border-radius:3px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;flex:none}
+.icon-btn:hover{border-color:var(--blue);color:var(--blue-deep)}
+.menu-btn{display:none}
+@media (max-width:1240px){
+  .nav{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;background:#fff;border-bottom:1px solid var(--line);padding:8px var(--gutter) 16px;display:none}
+  .nav.open{display:flex}
+  .nav a{padding:12px 8px;border-bottom:1px solid var(--mist-2)}
+  .nav a.start{margin:10px 0 0;text-align:center}
+  .menu-btn{display:grid;margin-left:auto}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:linear-gradient(180deg,var(--mist) 0%,#fff 100%);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(40px,6vw,80px)}
+.hero h1{position:relative;z-index:0;font-size:clamp(2.7rem,6.4vw,5.1rem);text-transform:uppercase;letter-spacing:-.005em}
+.hero h1 em{font-style:normal;color:var(--blue-deep);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.14em;background:var(--yellow);z-index:-1}
+.hero-copy{display:grid;gap:22px}
+.hero .usp{font-family:var(--display);font-weight:600;font-size:clamp(1.2rem,2vw,1.45rem);line-height:1.25;color:var(--ink);max-width:36ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-figure{position:relative;margin:0}
+.hero-figure img{width:100%;aspect-ratio:4/3.3;object-fit:cover;border-radius:4px;box-shadow:0 30px 60px -30px rgba(11,68,88,.45)}
+.hero-figure figcaption{font-family:var(--mono);font-size:.72rem;color:var(--ink-3);margin-top:10px;letter-spacing:.04em}
+.compass{position:absolute;left:-34px;bottom:48px;width:136px;height:136px;background:#fff;border-radius:50%;box-shadow:0 12px 30px -12px rgba(11,68,88,.4);padding:8px}
+.compass svg{width:100%;height:100%}
+.compass .needle{transform-origin:60px 60px;animation:settle 2.6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes settle{0%{transform:rotate(-70deg)}55%{transform:rotate(26deg)}75%{transform:rotate(8deg)}88%{transform:rotate(15deg)}100%{transform:rotate(13deg)}}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .compass{left:12px;bottom:40px;width:104px;height:104px}
+}
+
+.proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+.proof .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.proof div{padding:22px 20px;border-left:1px solid var(--line);display:grid;gap:2px}
+.proof div:first-child{border-left:0;padding-left:0}
+.proof b{font-family:var(--display);font-weight:700;font-size:2rem;line-height:1;color:var(--ink)}
+.proof b sup{font-size:.5em;color:var(--blue)}
+.proof span{font-size:.9rem;color:var(--ink-2);line-height:1.35}
+@media (max-width:860px){.proof .wrap{grid-template-columns:1fr 1fr}.proof div:nth-child(3){border-left:0;padding-left:0}.proof div:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* ---------- intro statement ---------- */
+.intro{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,5vw,72px);align-items:start}
+.intro p.big{font-size:clamp(1.25rem,2.1vw,1.6rem);line-height:1.45;color:var(--ink)}
+.intro p.big strong{color:var(--blue-deep);font-weight:600}
+@media (max-width:860px){.intro{grid-template-columns:1fr}}
+
+/* ---------- journey ---------- */
+.journey{background:var(--ink);color:#e6f1f5}
+.journey .eyebrow{color:var(--yellow)}
+.journey h2{color:#fff}
+.journey .lede{color:#b8d0d9}
+.route{position:relative;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px;list-style:none;margin:0;padding:0}
+.route::before{content:"";position:absolute;left:3%;right:3%;top:23px;border-top:2px dashed rgba(245,206,46,.55)}
+.stage{position:relative}
+.stage button{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:12px;width:100%;height:100%;padding-bottom:6px}
+.stage .num{position:relative;z-index:1;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--ink);border:2px solid var(--yellow);font-family:var(--display);font-weight:700;font-size:1.3rem;color:var(--yellow);transition:background .15s,color .15s}
+.stage .thumb{aspect-ratio:4/3;border-radius:3px;overflow:hidden;background:#0f2630;outline:2px solid transparent;transition:outline-color .15s}
+.stage .thumb img{width:100%;height:100%;object-fit:cover;opacity:.82;transition:opacity .2s,transform .4s}
+.stage .name{font-family:var(--display);font-weight:700;font-size:1.3rem;text-transform:uppercase;color:#fff;line-height:1}
+.stage .hint{font-size:.85rem;color:#a9c4ce;line-height:1.35}
+.stage button:hover .thumb img{opacity:1;transform:scale(1.04)}
+.stage button[aria-selected="true"] .num{background:var(--yellow);color:var(--ink)}
+.stage button[aria-selected="true"] .thumb{outline-color:var(--yellow)}
+.stage button[aria-selected="true"] .thumb img{opacity:1}
+.stage-panel{margin-top:32px;background:#fff;color:var(--ink);border-radius:4px;display:grid;grid-template-columns:1.1fr 1fr;overflow:hidden}
+.stage-panel .body{padding:clamp(22px,3.5vw,40px);display:grid;gap:18px;align-content:start}
+.stage-panel .kicker{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.stage-panel h3{font-size:clamp(1.8rem,3vw,2.4rem)}
+.stage-panel ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}
+.stage-panel li{display:flex;gap:10px;align-items:baseline;font-size:.98rem}
+.stage-panel li::before{content:"";width:8px;height:8px;background:var(--blue);transform:rotate(45deg);flex:none;position:relative;top:-1px}
+.resources{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.res{display:flex;gap:12px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:3px;text-decoration:none;color:var(--ink);background:#fff;transition:border-color .15s,background .15s}
+.res:hover{border-color:var(--blue);background:var(--mist)}
+.res .ic{width:40px;height:40px;border-radius:3px;display:grid;place-items:center;flex:none}
+.res.pdf .ic{background:var(--yellow-soft);color:#6b5400}
+.res.vid .ic{background:#dff1f7;color:var(--blue-ink)}
+.res b{display:block;font-weight:600;font-size:.95rem;line-height:1.25}
+.res small{color:var(--ink-3);font-size:.8rem}
+.stage-panel .visual{position:relative;min-height:280px;background:var(--mist)}
+.stage-panel .visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage-panel .visual .contain{object-fit:contain;padding:24px;background:#fff}
+.stage-nav{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:18px}
+.stage-nav button{all:unset;cursor:pointer;font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--blue-deep);display:inline-flex;gap:.4em;align-items:center}
+.stage-nav button:hover{color:var(--ink)}
+.stage-nav button:focus-visible{outline:3px solid var(--yellow)}
+.stage-nav button[disabled]{visibility:hidden}
+@media (max-width:1000px){
+  .route{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:24px}
+  .route::before{display:none}
+}
+@media (max-width:760px){
+  .route{grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+  .stage .thumb,.stage .hint{display:none}
+  .stage .num{width:100%;max-width:44px;height:auto;aspect-ratio:1;margin-inline:auto;font-size:1.1rem}
+  .stage .name{font-size:.72rem;text-align:center;letter-spacing:.02em;word-break:break-word}
+  .stage button{gap:6px}
+  .stage-panel{grid-template-columns:1fr}
+  .stage-panel .visual{min-height:200px;order:-1}
+  .stage-panel ul,.resources{grid-template-columns:1fr}
+}
+
+/* ---------- start here ---------- */
+.start-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.video{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:16/10;background:var(--ink)}
+.video img{width:100%;height:100%;object-fit:cover;opacity:.78}
+.video .play{position:absolute;inset:0;display:grid;place-items:center;border:0;background:linear-gradient(0deg,rgba(21,49,61,.65),rgba(21,49,61,0) 55%);cursor:pointer;color:#fff}
+.video .play span{width:84px;height:84px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;color:var(--ink);box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .15s}
+.video .play:hover span{transform:scale(1.07)}
+.video .meta{position:absolute;left:20px;bottom:18px;right:20px;color:#fff;display:flex;justify-content:space-between;align-items:end;gap:12px;pointer-events:none}
+.video .meta b{font-family:var(--display);font-size:1.6rem;text-transform:uppercase;line-height:1}
+.video .meta small{font-family:var(--mono);font-size:.75rem}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:18px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.steps li::before{counter-increment:s;content:counter(s);width:44px;height:44px;border-radius:50%;border:2px solid var(--blue);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:1.2rem;color:var(--blue-deep)}
+.steps b{display:block;font-family:var(--display);font-size:1.25rem;text-transform:uppercase;line-height:1.1;margin-bottom:4px}
+.steps p{color:var(--ink-2);font-size:.98rem}
+.disclaimer{margin-top:26px;padding:16px 18px;border-left:4px solid var(--yellow);background:var(--mist);font-size:.9rem;color:var(--ink-2)}
+.disclaimer b{color:var(--ink)}
+@media (max-width:860px){.start-grid{grid-template-columns:1fr}}
+
+/* ---------- tools ---------- */
+.tools-bg{background:var(--mist)}
+.tools{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
+.tool{background:#fff;border:1px solid var(--line);border-radius:4px;padding:22px;display:grid;gap:10px;align-content:start;text-decoration:none;color:var(--ink);transition:border-color .15s,transform .15s}
+.tool:hover{border-color:var(--blue);transform:translateY(-2px)}
+.tool h3{font-size:1.3rem}
+.tool p{font-size:.95rem;color:var(--ink-2)}
+.tool .row{display:flex;gap:8px;flex-wrap:wrap}
+.tool.feature{grid-row:span 3;display:grid;grid-template-rows:auto 1fr;padding:0;overflow:hidden}
+.tool.feature .img{background:#fff;padding:18px 18px 0;border-bottom:1px solid var(--line)}
+.tool.feature .img img{max-height:320px;margin-inline:auto}
+.tool.feature .txt{padding:22px;display:grid;gap:10px;align-content:start}
+.tool.feature h3{font-size:1.8rem}
+.tools-foot{margin-top:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:.92rem;color:var(--ink-2)}
+@media (max-width:1000px){.tools{grid-template-columns:1fr 1fr}.tool.feature{grid-row:auto;grid-column:1/-1}}
+@media (max-width:600px){.tools{grid-template-columns:1fr}}
+
+/* ---------- plans ---------- */
+.plans-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filters button{font-family:var(--display);font-weight:600;font-size:.98rem;text-transform:uppercase;letter-spacing:.04em;padding:8px 14px;border:1px solid var(--line);background:#fff;border-radius:3px;cursor:pointer;color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.plan{margin:0;display:grid;gap:10px;text-decoration:none;color:var(--ink)}
+.plan .ph{aspect-ratio:4/3;overflow:hidden;border-radius:3px;background:var(--mist)}
+.plan .ph img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.plan:hover .ph img{transform:scale(1.04)}
+.plan h3{font-size:1.25rem}
+.plan .tags{display:flex;gap:6px;flex-wrap:wrap}
+.plans-note{margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:18px 20px;border:1px solid var(--line);border-radius:4px;font-size:.93rem;color:var(--ink-2)}
+.plans-note svg{color:var(--blue-deep);width:26px;height:26px}
+@media (max-width:1000px){.plans{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.plans{grid-template-columns:1fr}}
+
+/* ---------- track record ---------- */
+.record{background:linear-gradient(180deg,#fff,var(--mist))}
+.record-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(28px,5vw,64px);align-items:start}
+.story p+p{margin-top:14px}
+.story p{color:var(--ink-2)}
+.story .pull{font-family:var(--display);font-weight:600;font-size:1.6rem;line-height:1.2;color:var(--ink);border-left:4px solid var(--blue);padding-left:16px;margin-block:22px}
+.accred{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+.accred img{height:56px;width:auto}
+.accred span{font-family:var(--mono);font-size:.75rem;color:var(--ink-3);line-height:1.6}
+.timeline{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:14px}
+.timeline::before{content:"";position:absolute;left:62px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.timeline li{display:grid;grid-template-columns:62px 1fr;gap:22px;align-items:start;position:relative}
+.timeline .yr{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--blue-deep);line-height:1.2}
+.timeline li::after{content:"";position:absolute;left:56px;top:9px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--blue)}
+.timeline li.win::after{background:var(--yellow);border-color:var(--ink)}
+.timeline .card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}
+.timeline .card b{display:block;font-weight:600;line-height:1.3}
+.timeline .card small{display:block;color:var(--ink-3);font-size:.86rem;margin-top:2px}
+.timeline .card img{width:74px;height:74px;object-fit:cover;border-radius:2px}
+.timeline .win-label{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#6b5400;background:var(--yellow-soft);padding:2px 6px;border-radius:2px;display:inline-block;margin-bottom:6px}
+@media (max-width:860px){.record-grid{grid-template-columns:1fr}}
+@media (max-width:480px){.timeline .card{grid-template-columns:1fr}.timeline .card img{display:none}}
+
+/* ---------- testimonials ---------- */
+.voices{position:relative;color:#fff;overflow:hidden;background:var(--ink)}
+.voices>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28}
+.voices .wrap{position:relative;display:grid;grid-template-columns:260px 1fr;gap:clamp(24px,5vw,64px);padding-block:clamp(64px,9vw,120px)}
+.voices .eyebrow{color:var(--yellow)}
+.voices h2{color:#fff;margin-top:14px}
+.quote{margin:0;display:grid;gap:22px;min-height:260px;align-content:start}
+.quote blockquote{margin:0;font-family:var(--display);font-weight:500;font-size:clamp(1.5rem,2.8vw,2.15rem);line-height:1.22}
+.quote blockquote::before{content:"\201C";display:block;font-size:4rem;line-height:.6;color:var(--yellow);margin-bottom:10px}
+.quote figcaption{font-family:var(--mono);font-size:.85rem;color:#bcd6de;letter-spacing:.04em}
+.quote figcaption b{color:#fff;font-weight:500}
+.q-controls{display:flex;gap:10px;align-items:center;margin-top:28px}
+.q-controls button.arrow{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;cursor:pointer;display:grid;place-items:center}
+.q-controls button.arrow:hover{background:#fff;color:var(--ink)}
+.dots{display:flex;gap:6px;margin-left:10px}
+.dots button{width:10px;height:10px;border-radius:50%;border:0;background:rgba(255,255,255,.35);cursor:pointer;padding:0}
+.dots button[aria-current="true"]{background:var(--yellow)}
+@media (max-width:760px){.voices .wrap{grid-template-columns:1fr}}
+
+/* ---------- knowledge ---------- */
+.kn-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.kn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.article{display:grid;gap:12px;text-decoration:none;color:var(--ink);align-content:start}
+.article .ph{aspect-ratio:16/10;border-radius:3px;overflow:hidden;background:var(--mist)}
+.article .ph img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.article:hover .ph img{transform:scale(1.04)}
+.article h3{font-size:1.45rem}
+.article p{color:var(--ink-2);font-size:.96rem}
+.article .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.chip.red{background:#fbe6e2;color:var(--red)}
+.topics{margin-top:30px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.topics span{font-family:var(--mono);font-size:.78rem;color:var(--ink-3);margin-right:6px}
+.topics a{padding:7px 12px;border:1px solid var(--line);border-radius:20px;text-decoration:none;color:var(--ink);font-size:.92rem}
+.topics a:hover{border-color:var(--blue);color:var(--blue-deep)}
+@media (max-width:900px){.kn-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.kn-grid{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+.contact-bg{background:var(--mist)}
+.contact{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(28px,5vw,64px);align-items:start}
+.hours{margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.hours .h{padding:14px 18px;background:var(--ink);color:#fff;font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.04em;display:flex;justify-content:space-between;gap:12px}
+.hours table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.hours td{padding:12px 18px;border-top:1px solid var(--line);font-size:.95rem}
+.hours td:last-child{text-align:right;font-family:var(--mono);font-size:.85rem}
+.hours .note{padding:14px 18px;border-top:1px solid var(--line);font-size:.9rem;color:var(--ink-2);display:grid;gap:6px}
+form.enquiry{background:#fff;border:1px solid var(--line);border-radius:4px;padding:clamp(20px,3vw,32px);display:grid;gap:16px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:grid;gap:6px}
+.field.full{grid-column:1/-1}
+label{font-family:var(--display);font-weight:600;font-size:.98rem;text-transform:uppercase;letter-spacing:.04em}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);padding:11px 12px;border:1px solid #bcd2da;border-radius:3px;background:#fff;width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(41,170,203,.22)}
+textarea{min-height:150px;resize:vertical}
+.count{font-family:var(--mono);font-size:.75rem;color:var(--ink-3);text-align:right}
+.count.over{color:var(--red)}
+.form-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.form-foot small{color:var(--ink-3);font-size:.85rem;max-width:40ch}
+.sent{padding:14px 16px;background:#e3f1e3;color:#255c27;border-radius:3px;font-size:.95rem}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+@media (max-width:520px){.fields{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:#b8d0d9;font-size:.92rem}
+.foot-top{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:32px;padding-block:56px 36px}
+.foot-top h4{font-family:var(--display);color:#fff;text-transform:uppercase;font-size:1.1rem;letter-spacing:.05em;margin-bottom:12px}
+.foot-top ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.foot-top a{color:#b8d0d9;text-decoration:none}
+.foot-top a:hover{color:var(--yellow)}
+.foot-brand{display:grid;gap:14px;align-content:start}
+.foot-brand .logo-disc{width:130px;height:130px;border-radius:50%;background:#fff;display:grid;place-items:center;padding:10px}
+.legal{border-top:1px solid rgba(255,255,255,.12);padding-block:22px 34px;display:grid;gap:10px;font-size:.8rem;line-height:1.55;color:#93afba}
+.legal b{color:#dbe9ee;font-weight:500}
+@media (max-width:860px){.foot-top{grid-template-columns:1fr 1fr}}
+
+/* ---------- search overlay ---------- */
+.search{position:fixed;inset:0;z-index:80;background:rgba(21,49,61,.55);display:grid;align-items:start;justify-items:center;padding:calc(env(safe-area-inset-top,0px) + 70px) 16px 16px}
+.search-box{width:min(640px,100%);background:#fff;border-radius:4px;box-shadow:0 30px 80px -20px rgba(0,0,0,.4);overflow:hidden}
+.search-box .in{display:flex;gap:10px;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line)}
+.search-box input{border:0;padding:6px 0;font-size:1.15rem}
+.search-box input:focus{box-shadow:none}
+.results{max-height:55vh;overflow:auto;list-style:none;margin:0;padding:6px}
+.results a{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:3px;text-decoration:none;color:var(--ink)}
+.results a:hover,.results a:focus{background:var(--mist)}
+.results small{font-family:var(--mono);font-size:.72rem;color:var(--ink-3);text-transform:uppercase;white-space:nowrap}
+.results .empty{padding:14px 12px;color:var(--ink-3)}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 2v6h6M9 13h6M9 17h6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="currentColor"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v6M12 7.5v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>Real building experience. Independent guidance. Better decisions before costly mistakes happen.</span>
+    <nav class="social" aria-label="Social media">
+      <a href="#" aria-label="True North on Facebook">Facebook</a>
+      <a href="#" aria-label="True North on Instagram">Instagram</a>
+      <a href="#" aria-label="True North on YouTube">YouTube</a>
+    </nav>
+  </div>
+</div>
+
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="True North home">
+      <img src="img/logo.png" alt="True North Design Co logo" width="108" height="89">
+      <span>True North<sup>®</sup><small>Independent building guidance</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#process">Building Process</a>
+      <a href="#plans">House Plans</a>
+      <a href="#tools">Tools &amp; Resources</a>
+      <a href="#knowledge">Building Knowledge</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+      <a href="#start" class="start">Start Here</a>
+    </nav>
+    <button class="icon-btn" id="openSearch" aria-label="Search the site"><svg class="icon"><use href="#i-search"/></svg></button>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><svg class="icon"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">For home builders, owner builders &amp; renovators</p>
+      <h1>Build with <em>knowledge,</em> not guesswork.</h1>
+      <p class="usp">Real building experience. Independent guidance. Better decisions before costly mistakes happen.</p>
+      <p class="lede">Practical checklists, easy-to-use tools and straight answers, from finding land right through to handover. Based on more than 40 years of designing and building homes on the NSW South Coast.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#process">Follow the 7 stages <svg class="icon"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="#start">Watch our story</a>
+      </div>
+    </div>
+    <figure class="hero-figure">
+      <img src="img/hero.jpg" alt="A True North designed home with skillion roofs and north-facing windows, set in native bushland" width="1800" height="1192">
+      <figcaption>North-facing living, wide eaves, cross ventilation · NSW South Coast</figcaption>
+      <div class="compass" role="img" aria-label="Compass showing true north, with magnetic north about 13 degrees east on the NSW South Coast">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="56" fill="#fff" stroke="#d3e3e9" stroke-width="2"/>
+          <g stroke="#15313d" stroke-width="1.2">
+            <path d="M60 8v8M60 104v8M8 60h8M104 60h8"/>
+          </g>
+          <g stroke="#9fb6be" stroke-width="1">
+            <path d="M23.2 23.2l4 4M92.8 23.2l-4 4M23.2 96.8l4-4M92.8 96.8l-4-4"/>
+          </g>
+          <text x="60" y="30" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="15" fill="#15313d">N</text>
+          <text x="60" y="100" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" fill="#6f8790">TN 000°</text>
+          <g class="needle">
+            <path d="M60 22l6 38h-12z" fill="#29aacb"/>
+            <path d="M60 98l6-38h-12z" fill="#15313d" opacity=".25"/>
+            <text x="60" y="18" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.5" fill="#0d6d8a">MN</text>
+          </g>
+          <circle cx="60" cy="60" r="5" fill="#f5ce2e" stroke="#15313d" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </figure>
+  </div>
+  <div class="proof">
+    <div class="wrap">
+      <div><b>40<sup>+</sup></b><span>years in home building &amp; design</span></div>
+      <div><b>No.&nbsp;40</b><span>HIA GreenSmart Professional, accredited 1999</span></div>
+      <div><b>5★ → 8★</b><span>NatHERS energy-rated homes, 1998 to today</span></div>
+      <div><b>Award</b><span>winning HIA &amp; Shoalhaven energy-efficient homes</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section" aria-labelledby="intro-h">
+  <div class="wrap intro">
+    <div class="section-head">
+      <p class="eyebrow">What True North does</p>
+      <h2 id="intro-h">Independent help for every decision</h2>
+    </div>
+    <div style="display:grid;gap:18px">
+      <p class="big">True North<sup>®</sup> helps aspiring home builders <strong>make informed decisions, avoid costly mistakes</strong> and move confidently from finding land through design, costing, contracts, construction and handover.</p>
+      <p class="lede">We no longer design or build. Instead we share what we learned: practical, independent guidance, proven checklists and simple tools. This is our story, and what worked for us may be useful for your situation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="section journey" id="process" aria-labelledby="journey-h">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The Building Process</p>
+      <h2 id="journey-h">Your seven-stage home building journey</h2>
+      <p class="lede">Every project moves through the same seven stages. Pick the one you are in. Each stage has a free 2–5 page guide to download and a short video that explains it.</p>
+    </div>
+
+    <ol class="route" role="tablist" aria-label="Seven stages" id="route"></ol>
+
+    <div class="stage-panel" id="stagePanel" role="tabpanel" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- START HERE -->
+<section class="section" id="start" aria-labelledby="start-h">
+  <div class="wrap start-grid">
+    <div class="video">
+      <img src="img/story.jpg" alt="The True North design studio, with plans on the desk and a computer showing a house design" loading="lazy">
+      <button class="play" id="playStory" aria-label="Play video: Our Story"><span><svg class="icon" style="width:30px;height:30px"><use href="#i-play"/></svg></span></button>
+      <div class="meta"><b>Our Story</b><small>Video · about 4 min</small></div>
+    </div>
+    <div>
+      <div class="section-head">
+        <p class="eyebrow">Start Here</p>
+        <h2 id="start-h">New to building? Start here</h2>
+      </div>
+      <ol class="steps">
+        <li><div><b>Who we are</b><p>Tony and Lucy Marshall formed True North Design Co in 1998 after 20 years in home building and design.</p></div></li>
+        <li><div><b>What we did</b><p>Designed and built award-winning, energy-efficient custom homes across the Shoalhaven and Eurobodalla.</p></div></li>
+        <li><div><b>How we can help you now</b><p>Work through the seven stages, use the tools, and book a call when you need a second opinion.</p></div></li>
+      </ol>
+      <p class="disclaimer"><b>Please note:</b> The information on this site is general guidance based on our own experience. It is not legal, financial or engineering advice. Always check with your council, certifier and qualified professionals before you act.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="section tools-bg" id="tools" aria-labelledby="tools-h">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Tools &amp; Resources</p>
+      <h2 id="tools-h">Tools we built on real jobs</h2>
+      <p class="lede">The same templates and calculators we used to design, cost and specify homes, now made simple enough for owners and owner builders.</p>
+    </div>
+    <div class="tools">
+      <a class="tool feature" href="#tools">
+        <div class="img"><img src="img/suncompass.jpg" alt="The True North Sun Compass, a printed sun-path overlay for site plans" loading="lazy"></div>
+        <div class="txt">
+          <div class="row"><span class="chip">Stage 2 · Evaluate</span><span class="chip">Printable tool</span></div>
+          <h3>My Sun Compass</h3>
+          <p>Lay it over your site plan to see where the sun sits in summer and winter, morning and afternoon. Find the best spot for living areas before you draw a single wall.</p>
+        </div>
+      </a>
+      <a class="tool" href="#tools"><div class="row"><span class="chip">Stage 1 · Find</span></div><h3>Preliminary House Estimator</h3><p>A quick first check of what your size and style of house is likely to cost.</p></a>
+      <a class="tool" href="#tools"><div class="row"><span class="chip">Stage 3 · Design</span></div><h3>House Wizard Design Tool</h3><p>Step through rooms, orientation and layout to build a clear design brief.</p></a>
+      <a class="tool" href="#tools"><div class="row"><span class="chip">Stage 4 · Budget</span></div><h3>My Cost Centre Template</h3><p>The spreadsheet structure builders use, so no cost gets forgotten.</p></a>
+      <a class="tool" href="#tools"><div class="row"><span class="chip">Stage 4 · Budget</span></div><h3>Cost Centre Estimator – Actual</h3><p>Track estimated against actual costs as quotes and invoices come in.</p></a>
+      <a class="tool" href="#tools"><div class="row"><span class="chip">Stage 4 · Budget</span></div><h3>Specwriter</h3><p>Generate a clear specification so every builder quotes on the same thing.</p></a>
+      <a class="tool" href="#tools"><div class="row"><span class="chip">Stage 6 · Contract</span></div><h3>Contracts Explained</h3><p>A plain-English worksheet to read your building contract before you sign.</p></a>
+    </div>
+    <div class="tools-foot">
+      <span>Also available: <b>Home Energy Audit</b> worksheet with local area notes, so you can do your own audit.</span>
+      <a class="btn btn-ghost" href="#tools">See all tools &amp; pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOUSE PLANS -->
+<section class="section" id="plans" aria-labelledby="plans-h">
+  <div class="wrap">
+    <div class="plans-head">
+      <div class="section-head" style="margin:0">
+        <p class="eyebrow">House Plans</p>
+        <h2 id="plans-h">Proven plans to start from</h2>
+        <p class="lede">Homes we designed and built for real sites and real budgets. Use them as a starting point, then take them to a drafting company to adapt to your block.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter plans">
+        <button aria-pressed="true" data-f="all">All</button>
+        <button aria-pressed="false" data-f="coastal">Coastal</button>
+        <button aria-pressed="false" data-f="bush">Bush &amp; rural</button>
+        <button aria-pressed="false" data-f="small">Cabins</button>
+      </div>
+    </div>
+    <div class="plans" id="plansGrid"></div>
+    <div class="plans-note">
+      <svg><use href="#i-info"/></svg>
+      <p><b>About plan copyright.</b> Whoever owns the plan owns the copyright. Some plans are free and some are paid. Each one comes with a licence that lets you have it modified by a drafting company for your own build.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRACK RECORD -->
+<section class="section record" id="about" aria-labelledby="about-h">
+  <div class="wrap record-grid">
+    <div class="story">
+      <div class="section-head">
+        <p class="eyebrow">About Us</p>
+        <h2 id="about-h">Four decades of building, done properly</h2>
+      </div>
+      <p>Lucy and Tony Marshall formed True North Design Co in 1998. Their first clients had a plan with a north verandah and small leadlight windows. It would have shut out the winter sun and the summer breeze. So they started again from scratch.</p>
+      <p>Architect John Ballinger, who oversaw the CSIRO software that became NatHERS, ran the new design through its simulations. It achieved 5 stars with single-glazed cedar windows. More than twenty years later, it still performs all year round.</p>
+      <p class="pull">It takes the same time and materials to build a house that performs well as one that performs poorly.</p>
+      <p>What matters is how you site the house and how you put those materials together. That is the knowledge this site is here to share.</p>
+      <div class="accred">
+        <img src="img/greensmart.jpg" alt="HIA GreenSmart Professional" loading="lazy">
+        <span>HIA GreenSmart Professional No. 40<br>HIA Gold Member No. 386502</span>
+      </div>
+    </div>
+    <ol class="timeline" aria-label="History and awards">
+      <li><span class="yr">1998</span><div class="card"><div><b>True North Design Co founded</b><small>First home designed on the new approach rates 5 stars under NatHERS</small></div></div></li>
+      <li><span class="yr">1999</span><div class="card"><div><b>HIA GreenSmart Professional No. 40</b><small>One of the first intakes of the national GreenSmart program</small></div></div></li>
+      <li><span class="yr">2001</span><div class="card"><div><b>Finalist, Coastal Home of the Year</b><small>HIA ACT &amp; Southern NSW Housing Awards</small></div><img src="img/a-2001.jpg" alt="The 2001 finalist coastal home" loading="lazy"></div></li>
+      <li class="win"><span class="yr">2006</span><div class="card"><div><span class="win-label">Winner</span><b>Energy Efficient Housing</b><small>HIA South Coast Housing Awards</small></div><img src="img/a-hia2006.jpg" alt="2006 HIA South Coast Housing Awards certificate, Energy Efficient Housing winner" loading="lazy"></div></li>
+      <li class="win"><span class="yr">2006</span><div class="card"><div><span class="win-label">Winner</span><b>Environmental Innovation</b><small>Shoalhaven Building Design Awards</small></div><img src="img/a-shoal2006.jpg" alt="2006 Shoalhaven Building Design Awards plaque" loading="lazy"></div></li>
+      <li class="win"><span class="yr">2008</span><div class="card"><div><span class="win-label">Winner</span><b>Best Practice in Building Sustainability</b><small>Shoalhaven Building Design Awards</small></div><img src="img/a-shoal2008.jpg" alt="2008 Shoalhaven Building Design Awards plaque" loading="lazy"></div></li>
+      <li><span class="yr">Today</span><div class="card"><div><b>8-star homes from everyday materials</b><small>Now sharing the method with owners and owner builders</small></div></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="voices" aria-labelledby="voices-h" aria-roledescription="carousel">
+  <img src="img/testimonial.jpg" alt="" loading="lazy">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Client Testimonials</p>
+      <h2 id="voices-h">In our clients’ words</h2>
+      <div class="q-controls">
+        <button class="arrow" id="qPrev" aria-label="Previous testimonial"><svg class="icon"><use href="#i-left"/></svg></button>
+        <button class="arrow" id="qNext" aria-label="Next testimonial"><svg class="icon"><use href="#i-arrow"/></svg></button>
+        <div class="dots" id="qDots"></div>
+      </div>
+    </div>
+    <figure class="quote" id="quote" aria-live="polite"></figure>
+  </div>
+</section>
+
+<!-- BUILDING KNOWLEDGE -->
+<section class="section" id="knowledge" aria-labelledby="kn-h">
+  <div class="wrap">
+    <div class="kn-head">
+      <div class="section-head" style="margin:0">
+        <p class="eyebrow">Blog · Building Knowledge</p>
+        <h2 id="kn-h">A new article every week</h2>
+      </div>
+      <button class="btn btn-ghost" id="openSearch2"><svg class="icon"><use href="#i-search"/></svg> Search articles</button>
+    </div>
+    <div class="kn-grid">
+      <a class="article" href="#knowledge">
+        <div class="ph"><img src="img/b-bushfire.jpg" alt="Bushfire approaching a property on the NSW South Coast, 4 January 2020" loading="lazy"></div>
+        <div class="row"><span class="chip red">Bushfire</span><span class="chip">6 min read</span></div>
+        <h3>Building in a bushfire zone: what BAL really means</h3>
+        <p>We watched the fire front arrive on 4 January 2020. Here is what we learned rebuilding to BAL 40.</p>
+      </a>
+      <a class="article" href="#knowledge">
+        <div class="ph"><img src="img/b-nathers.jpg" alt="Bright kitchen and living area in an 8-star NatHERS rated home" loading="lazy"></div>
+        <div class="row"><span class="chip green">Energy rating</span><span class="chip">5 min read</span></div>
+        <h3>How we get to 8 stars without expensive materials</h3>
+        <p>Orientation, glazing, insulation and thermal mass. The order you decide them matters.</p>
+      </a>
+      <a class="article" href="#knowledge">
+        <div class="ph"><img src="img/b-windows.jpg" alt="Covered deck overlooking the water at Lake Conjola" loading="lazy"></div>
+        <div class="row"><span class="chip">Windows</span><span class="chip">4 min read</span></div>
+        <h3>Windows: the most expensive thing you’ll get wrong</h3>
+        <p>Where to put glass, how much, and which way it should open for South Coast breezes.</p>
+      </a>
+    </div>
+    <div class="topics">
+      <span>Browse topics</span>
+      <a href="#knowledge">Home audit</a>
+      <a href="#knowledge">Pre-purchase inspections</a>
+      <a href="#knowledge">Energy rating</a>
+      <a href="#knowledge">Bushfire</a>
+      <a href="#knowledge">Windows</a>
+      <a href="#knowledge">Suppliers</a>
+      <a href="#knowledge">Subcontractors</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-bg" id="contact" aria-labelledby="contact-h">
+  <div class="wrap contact">
+    <div>
+      <div class="section-head">
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-h">How can we help?</h2>
+        <p class="lede">Tell us about your block, your house or your problem. We will reply by email, or you can book a time to talk it through.</p>
+      </div>
+      <div class="hours">
+        <div class="h"><span>Phone &amp; online consults</span><span>AEST</span></div>
+        <table>
+          <tr><td>Tuesday</td><td>9–11 am · 1–3 pm</td></tr>
+          <tr><td>Thursday</td><td>9–11 am · 1–3 pm</td></tr>
+        </table>
+        <div class="note">
+          <span><b>Short call:</b> free. A quick question, a quick answer.</span>
+          <span><b>Longer session:</b> paid, when it is useful for your project.</span>
+        </div>
+      </div>
+      <p style="margin-top:18px"><a class="btn btn-yellow" href="#contact">Book a time</a></p>
+    </div>
+
+    <form class="enquiry" id="enquiry" novalidate>
+      <div class="fields">
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="f-post">Postcode</label><input id="f-post" name="postcode" inputmode="numeric" maxlength="4" autocomplete="postal-code"></div>
+        <div class="field full"><label for="f-stage">Which stage are you at?</label>
+          <select id="f-stage" name="stage">
+            <option>Not sure yet</option><option>1 · Find</option><option>2 · Evaluate</option><option>3 · Design</option><option>4 · Budget</option><option>5 · Approvals</option><option>6 · Contract &amp; Build</option><option>7 · Handover</option>
+          </select></div>
+        <div class="field full"><label for="f-msg">Details of your question</label><textarea id="f-msg" name="message" required placeholder="What are you planning, where, and what’s the problem?"></textarea><div class="count" id="count">0 / 200 words</div></div>
+      </div>
+      <div class="form-foot">
+        <small>We’ll only use your details to reply to this enquiry.</small>
+        <button class="btn btn-primary" type="submit">Send enquiry <svg class="icon"><use href="#i-arrow"/></svg></button>
+      </div>
+      <div class="sent" id="sent" hidden>Thanks. Your enquiry is ready to send once the site is connected to Wix Forms.</div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-top">
+    <div class="foot-brand">
+      <a href="#top" class="logo-disc" aria-label="Back to top"><img src="img/logo.png" alt="True North Design Co logo"></a>
+      <p>Independent guidance for people building or renovating a home.</p>
+    </div>
+    <div><h4>The 7 stages</h4><ul id="footStages"></ul></div>
+    <div><h4>Explore</h4><ul>
+      <li><a href="#start">Start Here</a></li><li><a href="#plans">House Plans</a></li><li><a href="#tools">Tools &amp; Resources</a></li><li><a href="#knowledge">Building Knowledge</a></li><li><a href="#about">About Us</a></li><li><a href="#contact">Contact</a></li>
+    </ul></div>
+    <div><h4>Follow</h4><ul>
+      <li><a href="#">Facebook</a></li><li><a href="#">Instagram</a></li><li><a href="#">YouTube</a></li><li><a href="#">Copyright &amp; Use</a></li><li><a href="#">Site map</a></li>
+    </ul></div>
+  </div>
+  <div class="wrap legal">
+    <p><b>© 2026 True North Design Co. All rights reserved.</b> All text, articles, guides, plans, drawings, illustrations, photographs, downloads and other original material published on this website are protected by copyright under Australian law. They may not be copied, reproduced, republished, distributed, adapted or commercially used without prior written permission.</p>
+    <p>TRUE NORTH® is a registered trade mark owned by Anthony Stuart Marshall in Australia in Classes 37 and 42.</p>
+  </div>
+</footer>
+
+<div class="search" id="search" hidden role="dialog" aria-modal="true" aria-label="Search the site">
+  <div class="search-box">
+    <div class="in"><svg class="icon" style="color:var(--ink-3)"><use href="#i-search"/></svg><input id="q" type="search" placeholder="Search stages, tools, plans and articles" autocomplete="off"><button class="icon-btn" id="closeSearch" aria-label="Close search" style="width:34px;height:34px"><svg class="icon"><use href="#i-close"/></svg></button></div>
+    <ul class="results" id="results"></ul>
+  </div>
+</div>
+
+<script>
+(function(){
+  const STAGES = [
+    {k:"find", name:"Find", hint:"Land, or a house to renovate", img:"s-find.jpg", alt:"Aerial view of farmland with a block marked out by map pins",
+     title:"Find the right block, or the right house", intro:"Before you fall in love with a view, decide whether to build, buy, knock down or renovate, and learn what to look for when you inspect.",
+     topics:["Build or buy?","Knock down, rebuild or renovate","Looking at a block","Looking at a house"],
+     guide:"Block & house inspection checklist", video:"What to look for on your first visit"},
+    {k:"evaluate", name:"Evaluate", hint:"Survey, contours, orientation", img:"s-evaluate.jpg", contain:true, alt:"Sketch showing how living areas face north on blocks around a cul-de-sac",
+     title:"Read the site before you commit", intro:"The survey plan tells you what the site will let you build. Orientation decides how the house will feel to live in.",
+     topics:["Survey plan","Contour map","Compass orientation","True north vs magnetic north"],
+     guide:"Reading a survey plan", video:"Using the Sun Compass on your site"},
+    {k:"design", name:"Design", hint:"Sketches, ideas, plans", img:"s-design.jpg", alt:"House model sitting on printed floor plans",
+     title:"Sketch the ideas that fit the site", intro:"About 90% of a home's comfort and running cost is set at the design stage. Start with a pencil, a notebook and the sun.",
+     topics:["Sketching ideas","Writing a design brief","Passive solar layout","Plans on the desk"],
+     guide:"Passive solar design basics", video:"From sketch to floor plan"},
+    {k:"budget", name:"Budget", hint:"Spreadsheets & cost centres", img:"s-budget.jpg", alt:"Calculator, scale ruler and highlighter on a set of building plans",
+     title:"Know the cost before you commit", intro:"Break the build into cost centres, write a proper specification and compare like with like.",
+     topics:["Budget spreadsheet","Cost centres","Specwriter","Allowances & contingency"],
+     guide:"Building a realistic budget", video:"How builders price a house"},
+    {k:"approvals", name:"Approvals", hint:"DA, CC, compliance", img:"s-approvals.jpg", alt:"Hand filling in an energy rating certificate on a set of plans",
+     title:"Get through approvals without delays", intro:"Know which reports your council needs, the order they come in, and how to avoid a request for more information.",
+     topics:["Compliance reports","Development approval (DA)","Construction certificate (CC)","Energy rating & BASIX"],
+     guide:"The approvals roadmap", video:"DA vs CC in plain English"},
+    {k:"build", name:"Contract & Build", hint:"Tender, contract, construction", img:"s-build.jpg", alt:"Builder reviewing plans with two homeowners on site",
+     title:"Choose the builder, sign with confidence", intro:"Pre-qualify builders, run a fair tender, and understand what you are signing before work begins.",
+     topics:["Contractor pre-qualification","Tender process","Building contracts","Progress payments"],
+     guide:"Tender & contract checklist", video:"Reading your building contract"},
+    {k:"handover", name:"Handover", hint:"Site management & warranty", img:"s-handover.jpg", alt:"Owners relaxing in the living room of their finished eco cabin",
+     title:"Finish well and move in", intro:"Good communication and site management carry you to a clean handover and a warranty you understand.",
+     topics:["Communication","Site management","Practical completion & handover","Warranty & defects"],
+     guide:"Handover inspection checklist", video:"Your final inspection, step by step"}
+  ];
+
+  const route = document.getElementById('route');
+  const panel = document.getElementById('stagePanel');
+  let current = 0;
+
+  route.innerHTML = STAGES.map((s,i)=>`
+    <li class="stage">
+      <button role="tab" id="tab-${s.k}" aria-controls="stagePanel" aria-selected="${i===0}" tabindex="${i===0?0:-1}" data-i="${i}">
+        <span class="num">${i+1}</span>
+        <span class="thumb"><img src="img/${s.img}" alt="" loading="lazy"></span>
+        <span class="name">${s.name}</span>
+        <span class="hint">${s.hint}</span>
+      </button>
+    </li>`).join('');
+
+  function renderStage(i, focus){
+    current = i;
+    const s = STAGES[i];
+    route.querySelectorAll('[role=tab]').forEach((b,j)=>{
+      b.setAttribute('aria-selected', j===i); b.tabIndex = j===i?0:-1;
+    });
+    if(focus) route.querySelector(`[data-i="${i}"]`).focus();
+    panel.setAttribute('aria-labelledby','tab-'+s.k);
+    panel.innerHTML = `
+      <div class="body">
+        <span class="kicker">Stage ${i+1} of 7 · ${s.name}</span>
+        <h3>${s.title}</h3>
+        <p style="color:var(--ink-2)">${s.intro}</p>
+        <ul>${s.topics.map(t=>`<li>${t}</li>`).join('')}</ul>
+        <div class="resources">
+          <a class="res pdf" href="#process"><span class="ic"><svg class="icon" style="width:20px;height:20px"><use href="#i-pdf"/></svg></span><span><b>${s.guide}</b><small>Free PDF guide · 2–5 pages</small></span></a>
+          <a class="res vid" href="#process"><span class="ic"><svg class="icon" style="width:18px;height:18px"><use href="#i-play"/></svg></span><span><b>${s.video}</b><small>Video · 3–5 min</small></span></a>
+        </div>
+        <div class="stage-nav">
+          <button data-go="${i-1}" ${i===0?'disabled':''}><svg class="icon"><use href="#i-left"/></svg> ${i>0?STAGES[i-1].name:''}</button>
+          <button data-go="${i+1}" ${i===6?'disabled':''}>${i<6?'Next: '+STAGES[i+1].name:''} <svg class="icon"><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+      <div class="visual"><img src="img/${s.img}" alt="${s.alt}" class="${s.contain?'contain':''}"></div>`;
+  }
+  route.addEventListener('click', e=>{ const b=e.target.closest('[role=tab]'); if(b) renderStage(+b.dataset.i); });
+  route.addEventListener('keydown', e=>{
+    const d = {ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];
+    if(d){ e.preventDefault(); renderStage((current+d+7)%7, true); }
+  });
+  panel.addEventListener('click', e=>{ const b=e.target.closest('[data-go]'); if(b && !b.disabled) renderStage(+b.dataset.go); });
+  renderStage(0);
+
+  document.getElementById('footStages').innerHTML = STAGES.map((s,i)=>`<li><a href="#process" data-stage="${i}">${i+1}. ${s.name}</a></li>`).join('');
+  document.addEventListener('click', e=>{ const a=e.target.closest('[data-stage]'); if(a) renderStage(+a.dataset.stage); });
+
+  // House plans
+  const PLANS = [
+    {n:"Cloudbreak", img:"p-cloudbreak.jpg", f:"coastal", tags:["Coastal","Skillion roof"]},
+    {n:"Gull Cottage", img:"p-gull.jpg", f:"coastal", tags:["Beach house","Upside-down living"]},
+    {n:"Woodburn Eco Cabin", img:"p-woodburn.jpg", f:"small", tags:["Cabin","Small footprint"]},
+    {n:"Montague", img:"p-montague.jpg", f:"bush", tags:["Rural","Self-sufficient"]},
+    {n:"Weemala", img:"p-weemala.jpg", f:"bush", tags:["Sloping site","3D model"]},
+    {n:"The Headland", img:"p-headland.jpg", f:"coastal", tags:["Coastal","3D model"]},
+    {n:"Riversdale", img:"p-riversdale.jpg", f:"coastal", tags:["Single storey","Stone walls"]},
+    {n:"Ray Residence", img:"p-ray.jpg", f:"bush", tags:["Steep block","3D model"]}
+  ];
+  const grid = document.getElementById('plansGrid');
+  function renderPlans(f){
+    grid.innerHTML = PLANS.filter(p=>f==='all'||p.f===f).map(p=>`
+      <a class="plan" href="#plans">
+        <div class="ph"><img src="img/${p.img}" alt="${p.n} house" loading="lazy"></div>
+        <h3>${p.n}</h3>
+        <div class="tags">${p.tags.map(t=>`<span class="chip">${t}</span>`).join('')}</div>
+      </a>`).join('');
+  }
+  document.querySelector('.filters').addEventListener('click', e=>{
+    const b=e.target.closest('button'); if(!b) return;
+    document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed', x===b));
+    renderPlans(b.dataset.f);
+  });
+  renderPlans('all');
+
+  // Testimonials (excerpts from client letters)
+  const QUOTES = [
+    {q:"They just seemed to ‘get’ what our family is trying to build. How fantastic to have a layout to work with on Day 1!", who:"Lyn", where:"Barrack Point, 2017"},
+    {q:"All the builders who have quoted on the house have commented on the quality and detail of the plans and specifications.", who:"Lyn", where:"Barrack Point, 2017"},
+    {q:"The house is very energy efficient. There were no ‘shocks’ during the building process and we are extremely happy with the end result.", who:"David & Dianne", where:"Narrawallee, 2016"},
+    {q:"Last summer, the hottest one on record, we used the air conditioner for a grand total of two days.", who:"Paul & Rebecca", where:"Shoebridge Lane"},
+    {q:"The light in the house is extraordinary. As the whole house faces true(ish) north, all rooms are bathed in natural light.", who:"Kerry & Hendre", where:"Hedley Way, 2015"},
+    {q:"The process involved a lot of upfront planning so you knew where you stood, and took any guesswork out of the process.", who:"Jennifer", where:"Narrawallee"}
+  ];
+  let qi = 0; const qEl = document.getElementById('quote'), dots = document.getElementById('qDots');
+  dots.innerHTML = QUOTES.map((_,i)=>`<button aria-label="Testimonial ${i+1}" data-q="${i}"></button>`).join('');
+  function showQ(i){
+    qi=(i+QUOTES.length)%QUOTES.length; const t=QUOTES[qi];
+    qEl.innerHTML = `<blockquote>${t.q}</blockquote><figcaption><b>${t.who}</b> · ${t.where}</figcaption>`;
+    dots.querySelectorAll('button').forEach((d,j)=>d.setAttribute('aria-current', j===qi));
+  }
+  document.getElementById('qPrev').onclick=()=>showQ(qi-1);
+  document.getElementById('qNext').onclick=()=>showQ(qi+1);
+  dots.addEventListener('click',e=>{const b=e.target.closest('[data-q]'); if(b) showQ(+b.dataset.q);});
+  showQ(0);
+
+  // Mobile menu
+  const nav=document.getElementById('nav'), mb=document.getElementById('menuBtn');
+  mb.onclick=()=>{const o=nav.classList.toggle('open'); mb.setAttribute('aria-expanded',o);};
+  nav.addEventListener('click',e=>{ if(e.target.closest('a')){nav.classList.remove('open'); mb.setAttribute('aria-expanded',false);} });
+
+  // Word counter
+  const msg=document.getElementById('f-msg'), cnt=document.getElementById('count');
+  const words=()=>msg.value.trim()?msg.value.trim().split(/\s+/).length:0;
+  msg.addEventListener('input',()=>{const w=words(); cnt.textContent=`${w} / 200 words`; cnt.classList.toggle('over',w>200);});
+  document.getElementById('enquiry').addEventListener('submit',e=>{
+    e.preventDefault();
+    const f=e.target, sent=document.getElementById('sent');
+    if(!f.checkValidity() || words()>200){ f.reportValidity(); if(words()>200){ msg.focus(); } return; }
+    sent.hidden=false;
+  });
+
+  // Site search
+  const INDEX = [
+    ...STAGES.map((s,i)=>({t:`Stage ${i+1}: ${s.name}`, k:s.topics.join(' ')+' '+s.title, cat:'Stage', href:'#process', stage:i})),
+    ...['My Sun Compass','Preliminary House Estimator','House Wizard Design Tool','My Cost Centre Template','Cost Centre Estimator – Actual','Specwriter','Contracts Explained','Home Energy Audit'].map(t=>({t,k:'tool',cat:'Tool',href:'#tools'})),
+    ...PLANS.map(p=>({t:p.n+' house plan',k:p.tags.join(' '),cat:'Plan',href:'#plans'})),
+    ...['Building in a bushfire zone: what BAL really means','How we get to 8 stars without expensive materials','Windows: the most expensive thing you’ll get wrong','Home audit','Pre-purchase inspections','Suppliers and subcontractors'].map(t=>({t,k:'article blog energy rating nathers',cat:'Article',href:'#knowledge'})),
+    {t:'Our Story video',k:'start here about who we are',cat:'Page',href:'#start'},
+    {t:'Awards & recognition',k:'hia greensmart shoalhaven history about',cat:'Page',href:'#about'},
+    {t:'Client testimonials',k:'reviews',cat:'Page',href:'#about'},
+    {t:'Book a phone or online consult',k:'contact tuesday thursday booking',cat:'Page',href:'#contact'}
+  ];
+  const sBox=document.getElementById('search'), q=document.getElementById('q'), res=document.getElementById('results');
+  function runSearch(){
+    const v=q.value.trim().toLowerCase();
+    const hits = v ? INDEX.filter(x=>(x.t+' '+x.k).toLowerCase().includes(v)) : INDEX.slice(0,9);
+    res.innerHTML = hits.length ? hits.slice(0,12).map(h=>`<li><a href="${h.href}" ${h.stage!=null?`data-stage="${h.stage}"`:''}><span>${h.t}</span><small>${h.cat}</small></a></li>`).join('') : `<li class="empty">No results for “${q.value.replace(/[<>&]/g,'')}”. Try “budget”, “sun” or “contract”.</li>`;
+  }
+  let lastFocus;
+  function openS(){ lastFocus=document.activeElement; sBox.hidden=false; q.value=''; runSearch(); q.focus(); }
+  function closeS(){ sBox.hidden=true; lastFocus&&lastFocus.focus(); }
+  document.getElementById('openSearch').onclick=openS;
+  document.getElementById('openSearch2').onclick=openS;
+  document.getElementById('closeSearch').onclick=closeS;
+  q.addEventListener('input',runSearch);
+  sBox.addEventListener('click',e=>{ if(e.target===sBox || e.target.closest('.results a')) closeS(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape' && !sBox.hidden) closeS(); if(e.key==='/' && sBox.hidden && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){e.preventDefault();openS();} });
+
+  document.getElementById('playStory').onclick=function(){ this.querySelector('span').innerHTML='<small style="font-family:var(--mono);font-size:.7rem;padding:6px;text-align:center;line-height:1.2">Video coming soon</small>'; };
+})();
+</script>

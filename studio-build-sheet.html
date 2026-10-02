@@ -1,0 +1,258 @@
+<title>True North Studio Build Sheet</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --blue:#29aacb;--blue-deep:#0d6d8a;--yellow:#f5ce2e;--yellow-soft:#fdf3c4;
+  --ink:#15313d;--ink-2:#44606b;--ink-3:#6f8790;--paper:#ffffff;--mist:#f1f7f9;--line:#d3e3e9;
+  --green:#e3f1e3;--green-ink:#255c27;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow","Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--paper:#0f1f27;--mist:#152a34;--line:#27434f;--ink:#e6f1f5;--ink-2:#b3cad3;--ink-3:#8aa6b1;--blue-deep:#5cc6e2;--yellow-soft:#3a3212;--green:#16301a;--green-ink:#9fd6a2}}
+:root[data-theme="dark"]{color-scheme:dark;--paper:#0f1f27;--mist:#152a34;--line:#27434f;--ink:#e6f1f5;--ink-2:#b3cad3;--ink-3:#8aa6b1;--blue-deep:#5cc6e2;--yellow-soft:#3a3212;--green:#16301a;--green-ink:#9fd6a2}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;padding-inline:clamp(16px,4vw,40px);padding-block:40px 80px}
+.wrap{max-width:980px;margin-inline:auto;display:grid;gap:44px}
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;line-height:1.05;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.2rem,5vw,3.2rem)}
+h2{font-size:1.8rem;display:flex;gap:12px;align-items:baseline}
+h2 .n{font-family:var(--mono);font-size:.8rem;color:var(--blue-deep);letter-spacing:.08em}
+h3{font-size:1.2rem}
+p{margin:0;max-width:70ch}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-deep)}
+header{display:grid;gap:12px;border-bottom:4px solid var(--yellow);padding-bottom:24px}
+header p{color:var(--ink-2);font-size:1.08rem}
+section{display:grid;gap:16px}
+.done{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.done div{background:var(--green);color:var(--green-ink);padding:12px 14px;border-radius:3px;font-size:.93rem}
+.done b{display:block;font-weight:600}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:.93rem}
+th,td{text-align:left;padding:10px 12px;border-top:1px solid var(--line);vertical-align:top}
+th{background:var(--mist);font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);border-top:0}
+td code,p code,li code{font-family:var(--mono);font-size:.82rem;background:var(--mist);padding:1px 5px;border-radius:2px}
+.sw{display:inline-block;width:16px;height:16px;border-radius:2px;vertical-align:-3px;margin-right:8px;border:1px solid rgba(0,0,0,.15)}
+.block{border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.block .hd{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:12px 16px;background:var(--mist);flex-wrap:wrap}
+.block .hd span{font-family:var(--mono);font-size:.75rem;color:var(--ink-3)}
+.block .bd{padding:14px 16px;display:grid;gap:10px}
+.block ul{margin:0;padding-left:1.1em;display:grid;gap:5px}
+.change{border-left:4px solid var(--yellow);background:var(--yellow-soft);padding:10px 14px;font-size:.92rem}
+.change b{font-weight:600}
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">True North · Wix Studio · My Site 9</p>
+  <h1>Studio Build Sheet</h1>
+  <p>How to build the True North homepage in Wix Studio. The content and images are already in the site's CMS. This sheet covers what's left in the editor: styles, sections, and which CMS fields to connect each element to.</p>
+</header>
+
+<section>
+  <h2><span class="n">00</span>Already done on the site</h2>
+  <div class="done">
+    <div><b>Wix CMS installed</b>5 collections created</div>
+    <div><b>Journey Stages</b>7 items, images linked</div>
+    <div><b>Tools &amp; Resources</b>8 items, Sun Compass image</div>
+    <div><b>House Plans</b>8 items, images linked</div>
+    <div><b>Awards &amp; History</b>7 items, 5 images</div>
+    <div><b>Testimonials</b>6 quotes</div>
+    <div><b>Region</b>Australia/Sydney, AUD</div>
+    <div><b>Media Manager</b>30 images uploaded</div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">01</span>Site Styles</h2>
+  <p>Open <b>Site Styles</b> (the Aa icon), then set the colours and fonts below. Colour 2 is already set.</p>
+  <div class="tbl"><table>
+    <tr><th>Slot</th><th>Hex</th><th>Use</th></tr>
+    <tr><td>Color 1</td><td><span class="sw" style="background:#ffffff"></span>#FFFFFF</td><td>Page background</td></tr>
+    <tr><td>Color 2</td><td><span class="sw" style="background:#f1f7f9"></span>#F1F7F9</td><td>Light blue-grey section backgrounds</td></tr>
+    <tr><td>Color 3</td><td><span class="sw" style="background:#d3e3e9"></span>#D3E3E9</td><td>Borders, divider lines</td></tr>
+    <tr><td>Color 4</td><td><span class="sw" style="background:#44606b"></span>#44606B</td><td>Body text, secondary</td></tr>
+    <tr><td>Color 5</td><td><span class="sw" style="background:#15313d"></span>#15313D</td><td>Headings, dark sections (journey, testimonials, footer)</td></tr>
+    <tr><td>Color 6</td><td><span class="sw" style="background:#29aacb"></span>#29AACB</td><td>Logo blue: primary buttons, links, accents</td></tr>
+    <tr><td>+ Add</td><td><span class="sw" style="background:#f5ce2e"></span>#F5CE2E</td><td>Logo yellow: "Start Here" button, stage numbers, underlines</td></tr>
+    <tr><td>+ Add</td><td><span class="sw" style="background:#0d6d8a"></span>#0D6D8A</td><td>Deep blue: text links and button hover (readable on white)</td></tr>
+    <tr><td>+ Add</td><td><span class="sw" style="background:#3b8a3e"></span>#3B8A3E</td><td>GreenSmart green: energy badges only</td></tr>
+    <tr><td>+ Add</td><td><span class="sw" style="background:#c8412b"></span>#C8412B</td><td>Red: warnings only (bushfire, disclaimers)</td></tr>
+  </table></div>
+  <div class="tbl"><table>
+    <tr><th>Text style</th><th>Font</th><th>Size (desktop / mobile)</th><th>Notes</th></tr>
+    <tr><td>Heading 1</td><td>Barlow Condensed Bold</td><td>80 / 44 px</td><td>UPPERCASE, line height 1.0</td></tr>
+    <tr><td>Heading 2</td><td>Barlow Condensed Bold</td><td>48 / 34 px</td><td>UPPERCASE, section titles</td></tr>
+    <tr><td>Heading 3</td><td>Barlow Condensed Bold</td><td>24 / 22 px</td><td>UPPERCASE, card titles</td></tr>
+    <tr><td>Heading 6 (eyebrow)</td><td>IBM Plex Mono</td><td>12 px</td><td>UPPERCASE, letter spacing 0.12em, Deep blue</td></tr>
+    <tr><td>Paragraph 1</td><td>Barlow Regular</td><td>19 px</td><td>Intro / lede text, Color 4</td></tr>
+    <tr><td>Paragraph 2</td><td>Barlow Regular</td><td>17 px</td><td>Body text</td></tr>
+    <tr><td>Paragraph 3</td><td>Barlow Regular</td><td>14 px</td><td>Captions, chips</td></tr>
+  </table></div>
+  <p>Barlow, Barlow Condensed and IBM Plex Mono are all Google Fonts. Add them from the font menu under <b>Upload / Add fonts</b>. Buttons use Barlow Condensed SemiBold at 18 px, UPPERCASE, 3 px corner radius.</p>
+</section>
+
+<section>
+  <h2><span class="n">02</span>What changed from the HTML design</h2>
+  <div class="tbl"><table>
+    <tr><th>HTML design</th><th>In Studio</th><th>Why</th></tr>
+    <tr><td>Stage tabs that swap a detail panel</td><td>Repeater of 7 stage cards. Each links to a <b>dynamic page</b> <code>/building-process/{title}</code></td><td>Studio has no CMS-driven tabs. A page per stage also gives each free guide and video a proper home, and it's better for SEO.</td></tr>
+    <tr><td>Animated compass</td><td>Static compass image, or a Lottie animation if you have one</td><td>No custom SVG animation</td></tr>
+    <tr><td>Custom search box</td><td><b>Wix Site Search</b> app (search bar in the header)</td><td>Built in, and indexes blog posts and pages</td></tr>
+    <tr><td>Testimonial arrows and dots</td><td>Repeater in <b>Slider</b> layout, connected to Testimonials</td><td>Native slider controls</td></tr>
+    <tr><td>Plan filter buttons</td><td>CMS <b>filter element</b> (Input → Selection tags) connected to the <code>style</code> field</td><td>Filtering without code</td></tr>
+    <tr><td>Contact form + word counter</td><td><b>Wix Forms</b>: 200-word limit set as the long-answer field's character limit (about 1,200 characters)</td><td>Forms can limit characters, not words</td></tr>
+    <tr><td>"Book a time" button</td><td><b>Wix Bookings</b>: two appointment services, Tuesday and Thursday 9–11 am and 1–3 pm</td><td>Real bookings</td></tr>
+    <tr><td>Weekly articles</td><td><b>Wix Blog</b>: "Recent Posts" widget, 3 posts</td><td>Tony can post weekly from the dashboard</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="n">03</span>Homepage, section by section</h2>
+  <p>Build each section with <b>Add → Sections → Blank</b> and a grid layout. Pixel values are for the 1280 px desktop breakpoint.</p>
+
+  <div class="block"><div class="hd"><h3>Header</h3><span>Sticky · white · 96 px</span></div><div class="bd">
+    <ul>
+      <li>Logo image <code>logo.png</code> at 108 px wide, linked to Home. Beside it, the text "TRUE NORTH®" (H3) with "Independent building guidance" under it (eyebrow style).</li>
+      <li>Horizontal menu: Building Process · House Plans · Tools &amp; Resources · Building Knowledge · About Us · Contact. Barlow Condensed SemiBold 16 px, UPPERCASE.</li>
+      <li>Yellow button "Start Here" linking to the #start anchor, plus the Site Search icon.</li>
+      <li>Header settings → Scroll effect: <b>Freeze</b>. At tablet and mobile widths, switch to a hamburger menu.</li>
+      <li>Top strip above the header, in a Color 5 section 36 px high: the USP line on the left (Paragraph 3, white). Facebook, Instagram and YouTube social bar on the right.</li>
+    </ul>
+  </div></div>
+
+  <div class="block"><div class="hd"><h3>1 · Hero</h3><span>2 columns · gradient Color 2 → white</span></div><div class="bd">
+    <ul>
+      <li>Left column, stacked in this order:
+        <ul>
+          <li>Eyebrow: "For home builders, owner builders &amp; renovators".</li>
+          <li>H1: "Build with <u>knowledge,</u> not guesswork." Put "knowledge," in Deep blue, with a yellow highlight from the text's highlight colour.</li>
+          <li>USP, Barlow Condensed SemiBold 24 px: "Real building experience. Independent guidance. Better decisions before costly mistakes happen."</li>
+          <li>Paragraph 1 lede.</li>
+          <li>Buttons: "Follow the 7 stages" (blue) and "Watch our story" (outline).</li>
+        </ul>
+      </li>
+      <li>Right column: <code>hero.jpg</code>, 4 px radius, soft shadow. Place the compass image overlapping its bottom-left corner.</li>
+      <li>Below the hero, a 4-column proof strip with thin Color 3 dividers: <b>40+</b> years · <b>No. 40</b> GreenSmart 1999 · <b>5★ → 8★</b> NatHERS · <b>Award</b> winning.</li>
+    </ul>
+  </div></div>
+
+  <div class="block"><div class="hd"><h3>2 · Intro statement</h3><span>2 columns · white</span></div><div class="bd">
+    <ul><li>Left: eyebrow "What True North does" and H2 "Independent help for every decision". Right: large intro text (24 px) and the "We no longer design or build…" paragraph.</li></ul>
+  </div></div>
+
+  <div class="block"><div class="hd"><h3>3 · Building Process (7 stages)</h3><span>Color 5 background · anchor #process</span></div><div class="bd">
+    <ul>
+      <li>Heading block in white text, with a yellow eyebrow.</li>
+      <li><b>Dataset</b> → Journey Stages, sorted by <code>stageNumber</code> ascending, 7 items.</li>
+      <li><b>Repeater</b>: 7 columns on desktop, 4 on tablet, and a horizontal slider on mobile. Each card:
+        <ul>
+          <li>Circle 48 px with a 2 px yellow border and the <code>stageNumber</code> text in yellow.</li>
+          <li>Image connected to <code>image</code>, 4:3.</li>
+          <li><code>title</code> as H3 in white.</li>
+          <li><code>hint</code> in 14 px light text.</li>
+        </ul>
+      </li>
+      <li>Click action on the card: link to the dynamic item page (see step 04).</li>
+      <li>Optional: behind the circles, a dashed yellow line (a Line element at 50% opacity).</li>
+    </ul>
+  </div></div>
+
+  <div class="block"><div class="hd"><h3>4 · Start Here</h3><span>2 columns · anchor #start</span></div><div class="bd">
+    <ul>
+      <li>Left: <b>Video Player</b> with the Snagit "Our Story" video. Until the video exists, use <code>story.jpg</code> as its cover image.</li>
+      <li>Right: H2 "New to building? Start here", then 3 numbered steps (who we are, what we did, how we can help) in a Stack.</li>
+      <li>Under the steps, the disclaimer box: Color 2 background with a 4 px yellow left border.</li>
+    </ul>
+  </div></div>
+
+  <div class="block"><div class="hd"><h3>5 · Tools &amp; Resources</h3><span>Color 2 background · anchor #tools</span></div><div class="bd">
+    <ul>
+      <li>Featured card on the left, 1.3 columns wide: a dataset on Tools filtered to <code>featured = true</code>. Image, stage chip, <code>title</code>, <code>description</code>.</li>
+      <li>A second dataset on Tools filtered to <code>featured = false</code>, sorted by <code>stageNumber</code>. Connect it to a repeater of white cards (2 columns, 1 px Color 3 border) showing <code>stageLabel</code> chip, <code>title</code> and <code>description</code>.</li>
+      <li>"See all tools &amp; pricing" button links to a Tools page. Fill in <code>price</code> once Tony decides which tools are free and which are paid.</li>
+    </ul>
+  </div></div>
+
+  <div class="block"><div class="hd"><h3>6 · House Plans</h3><span>white · anchor #plans</span></div><div class="bd">
+    <ul>
+      <li>Dataset → House Plans, sorted by <code>sortOrder</code>. Selection tags (All, Coastal, Bush &amp; rural, Cabins) filter on <code>style</code>.</li>
+      <li>Repeater, 4 columns: image 4:3, <code>title</code> H3, <code>tags</code> in a chip style.</li>
+      <li>Below it, the copyright note box with an info icon.</li>
+    </ul>
+  </div></div>
+
+  <div class="block"><div class="hd"><h3>7 · About Us &amp; awards</h3><span>gradient white → Color 2 · anchor #about</span></div><div class="bd">
+    <ul>
+      <li>Left: the story text, a pull quote (Barlow Condensed 26 px with a 4 px blue left border), and the GreenSmart logo with membership numbers.</li>
+      <li>Right: dataset → Awards &amp; History, sorted by <code>sortOrder</code>. A vertical repeater (1 column) makes the timeline:
+        <ul>
+          <li><code>year</code> in blue Barlow Condensed.</li>
+          <li>A card with the <code>result</code> label, <code>title</code>, <code>body</code> and a 74 px <code>image</code>.</li>
+          <li>A 2 px Color 3 vertical line behind it.</li>
+        </ul>
+      </li>
+      <li>Show the <code>result</code> label only when it equals "Winner". Use a yellow chip.</li>
+    </ul>
+  </div></div>
+
+  <div class="block"><div class="hd"><h3>8 · Testimonials</h3><span>Color 5 · background image testimonial.jpg at 28% opacity</span></div><div class="bd">
+    <ul><li>Dataset → Testimonials, sorted by <code>sortOrder</code>. Repeater in slider layout, 1 item per view, with arrows. <code>title</code> in Barlow Condensed Medium 34 px white, under a yellow opening quote mark. <code>clientName</code> · <code>location</code> in mono.</li></ul>
+  </div></div>
+
+  <div class="block"><div class="hd"><h3>9 · Building Knowledge</h3><span>white · anchor #knowledge</span></div><div class="bd">
+    <ul><li>Add Wix Blog, then the "Recent Posts" widget (3 columns). Start with 3 posts using <code>b-bushfire.jpg</code>, <code>b-nathers.jpg</code> and <code>b-windows.jpg</code>; Tony needs to write the article text. Under the widget, add topic buttons linking to blog categories.</li></ul>
+  </div></div>
+
+  <div class="block"><div class="hd"><h3>10 · Contact</h3><span>Color 2 · anchor #contact</span></div><div class="bd">
+    <ul>
+      <li>Left: H2 "How can we help?". Under it, the consult hours box:
+        <ul>
+          <li>Header bar in Color 5.</li>
+          <li>Tuesday and Thursday, 9–11 am · 1–3 pm.</li>
+          <li>"Short call: free · Longer session: paid".</li>
+          <li>Yellow "Book a time" button linking to the Bookings page.</li>
+        </ul>
+      </li>
+      <li>Right: Wix Forms fields: Name, Email, Phone, Postcode (4 digits), "Which stage are you at?" (dropdown with the 7 stages), and "Details of your question" (long answer, limited to about 1,200 characters).</li>
+    </ul>
+  </div></div>
+
+  <div class="block"><div class="hd"><h3>Footer</h3><span>Color 5</span></div><div class="bd">
+    <ul>
+      <li>4 columns: logo on a white circle, the 7 stages (a repeater from Journey Stages), Explore links, and Follow links.</li>
+      <li>Legal strip in 13 px:
+        <ul>
+          <li>"© 2026 True North Design Co. All rights reserved." followed by the copyright paragraph.</li>
+          <li>"TRUE NORTH® is a registered trade mark owned by Anthony Stuart Marshall in Australia in Classes 37 and 42."</li>
+        </ul>
+      </li>
+    </ul>
+  </div></div>
+</section>
+
+<section>
+  <h2><span class="n">04</span>Stage pages (dynamic)</h2>
+  <div class="block"><div class="bd">
+    <ul>
+      <li>CMS → Journey Stages → <b>Add dynamic page</b> → Item page. Set the URL to <code>/building-process/{title}</code>.</li>
+      <li>Layout: "Stage {stageNumber} of 7" eyebrow, <code>headline</code> as H1, <code>intro</code>, <code>topics</code> as a text list, and the image connected to <code>image</code>.</li>
+      <li>Two cards:
+        <ul>
+          <li>"Free PDF guide": <code>guideTitle</code> with a button linked to <code>guideUrl</code>.</li>
+          <li>Video Player linked to <code>videoUrl</code>, captioned with <code>videoTitle</code>.</li>
+        </ul>
+      </li>
+      <li>Hide both buttons when their field is empty.</li>
+      <li>Previous / Next buttons: use the dataset's Previous/Next item actions.</li>
+      <li>Upload each lead-magnet PDF to Media Manager, then paste its link into <code>guideUrl</code> in the CMS.</li>
+    </ul>
+  </div></div>
+</section>
+
+<section>
+  <h2><span class="n">05</span>Still to decide</h2>
+  <p class="change"><b>From Tony:</b> which tools and plans are free or paid, and their prices. The 7 lead-magnet PDFs and videos. Blog article text. Confirmation of the award years (his plaque says 2006, but the ChatGPT notes say 2004). Licences for the stock images used on the stages (land, design, budget and builder photos).</p>
+</section>
+</div>
