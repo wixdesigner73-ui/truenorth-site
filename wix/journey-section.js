@@ -180,7 +180,7 @@ class TnJourneySection extends HTMLElement {
   <div class="head">
     <div><p class="eyebrow">The seven-stage homeowner journey</p><h2>Where are you in your project?</h2>
     <p class="lede">Choose your stage. Each one has a short overview, common mistakes, practical steps and the guides and tools that help.</p></div>
-    <a class="btn btn-ghost" href="${site}journey.html" target="_top">See the full journey</a>
+    <a class="btn btn-ghost" href="${site}journey" target="_top">See the full journey</a>
   </div>
   <div class="tiles">${startTile}${tiles}${startPanel}${panels}</div>
 </div></section>`;
