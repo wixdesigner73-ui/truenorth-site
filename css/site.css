@@ -536,3 +536,79 @@ footer{background:var(--ink);color:#b8d0d9;font-size:.92rem;border-top:1px solid
   .js .sr-reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
   .js .sr-reveal.in{opacity:1;transform:none}
 }
+
+/* =====================================================================
+   HEADER DROPDOWN (Building Journey) + HOME TILES WITH EXPANDING PANELS
+   ===================================================================== */
+.has-sub{display:flex;align-items:center}
+.sub-toggle{display:grid;place-items:center;width:24px;height:34px;margin-left:-6px;border:0;background:none;color:var(--ink);cursor:pointer;border-radius:3px}
+.sub-toggle:hover{background:var(--mist);color:var(--blue-deep)}
+.sub-toggle .icon{width:16px;height:16px;transition:transform .2s}
+.sub-toggle[aria-expanded="true"] .icon{transform:rotate(180deg)}
+.mega{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border:1px solid var(--line);border-top:3px solid var(--yellow);border-radius:0 0 4px 4px;padding:22px 24px 24px;grid-template-columns:repeat(4,1fr);gap:20px 28px;box-shadow:0 26px 40px -22px rgba(11,68,88,.45)}
+.mega.open{display:grid}
+@media (min-width:1181px){.has-sub:hover .mega,.has-sub:focus-within .mega{display:grid}}
+.mega-col{display:grid;gap:8px;align-content:start}
+.nav .mega a{text-transform:none;letter-spacing:0;white-space:normal;box-shadow:none;border-bottom:0}
+.nav .mega .mega-h{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:1.15rem;text-transform:uppercase;letter-spacing:.04em;padding:4px 0}
+.mega-h span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--yellow);font-size:.95rem}
+.mega-more .mega-h{padding-left:0}
+.mega ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.nav .mega ul a{font-family:var(--body);font-weight:400;font-size:.92rem;color:var(--ink-2);padding:4px 0 4px 38px}
+.nav .mega-more ul a{padding-left:0}
+.nav .mega ul a:hover,.nav .mega .mega-h:hover{background:none;color:var(--blue-deep);text-decoration:underline}
+@media (max-width:1180px){
+  .has-sub{flex-wrap:wrap}
+  .has-sub>a{flex:1}
+  .sub-toggle{width:44px;height:44px;margin:0;border-bottom:1px solid var(--mist-2)}
+  .mega{position:static;flex:0 0 100%;box-shadow:none;border:0;border-left:3px solid var(--yellow);border-radius:0;padding:6px 0 6px 14px;grid-template-columns:1fr;gap:2px;margin:0 0 8px}
+  .mega ul{display:none}
+  .nav .mega .mega-h{font-size:1.05rem;padding:9px 0}
+  .mega-more ul{display:grid}
+}
+
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tile{order:var(--o4);position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;text-decoration:none;color:var(--ink);cursor:pointer;transition:border-color .2s,transform .2s,box-shadow .2s}
+.tile:hover,.tile[aria-expanded="true"]{border-color:var(--blue);box-shadow:0 18px 34px -22px rgba(11,68,88,.5)}
+.tile:hover{transform:translateY(-3px)}
+.tile[aria-expanded="true"]{outline:2px solid var(--yellow);outline-offset:-2px}
+.tile .t-img{display:block;aspect-ratio:16/10;overflow:hidden;background:var(--mist)}
+.tile .t-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.tile:hover .t-img img{transform:scale(1.05)}
+.tile .t-txt{display:flex;gap:12px;align-items:center;padding:14px 16px}
+.tile .n{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--yellow);font-family:var(--display);font-weight:700;font-size:1.1rem}
+.tile .t-name{display:block;font-family:var(--display);font-weight:700;font-size:1.25rem;text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
+.tile .t-sub{display:block;color:var(--ink-3);font-size:.82rem;margin-top:2px}
+.tile-start{background:var(--blue-deep);border-color:var(--blue-deep);color:#fff;justify-content:center;gap:10px;padding:22px 20px;border-left:6px solid var(--yellow)}
+.tile-start .t-name{font-size:1.5rem}
+.tile-start .t-sub{color:#e9f6fa;font-size:.92rem}
+.tile-start:hover,.tile-start[aria-expanded="true"]{background:var(--blue-ink);border-color:var(--blue-ink);border-left-color:var(--yellow)}
+.tile-start .go-dot{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--yellow);color:var(--ink)}
+.tile-panel{order:var(--o4);grid-column:1/-1;position:relative;display:grid;grid-template-columns:1.3fr 1fr;gap:28px;background:var(--mist);border:1px solid var(--line);border-top:4px solid var(--yellow);border-radius:6px;padding:28px 56px 28px 28px;animation:tpIn .25s var(--ease)}
+.tile-panel[hidden]{display:none}
+@keyframes tpIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.tp-close{position:absolute;right:10px;top:10px;display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:3px;background:#fff;color:var(--ink);cursor:pointer}
+.tp-close:hover{border-color:var(--blue);color:var(--blue-deep)}
+.tp-copy{display:grid;gap:12px;align-content:start}
+.tp-copy h3{font-size:1.7rem}
+.tp-copy p{color:var(--ink-2)}
+.tp-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.tp-res,.tp-links{display:grid;gap:10px;align-content:start;list-style:none;margin:0;padding:0}
+.tp-item,.tp-links a{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:4px;text-decoration:none;color:var(--ink)}
+.tp-links a{flex-direction:column;gap:2px}
+.tp-links small{color:var(--ink-3)}
+.tp-item:hover,.tp-links a:hover{border-color:var(--blue)}
+.tp-item .ic{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:4px;background:var(--mist);color:var(--blue-deep)}
+.tp-item small{color:var(--ink-3);margin-right:6px}
+@media (max-width:1000px){
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .tile,.tile-panel{order:var(--o2)}
+  .tile-panel{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .tiles{grid-template-columns:1fr}
+  .tile,.tile-panel{order:var(--o1)}
+  .tile-panel{padding:22px 18px 22px}
+  .tp-copy h3{padding-right:40px}
+}
+.tp-item b{display:block}

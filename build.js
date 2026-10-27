@@ -18,6 +18,7 @@ const shortName = s => s.short || s.name;
 
 const SPRITE = `<svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
   <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 2v6h6M9 13h6M9 17h6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
@@ -52,9 +53,17 @@ const NAV = [
   ['contact.html', 'Contact', 'contact']
 ];
 
+const MEGA = `<div class="mega" id="mega">
+        ${STAGES.map(s => `<div class="mega-col"><a class="mega-h" href="${s.slug}"><span>${s.n}</span>${s.name}</a><ul>${s.topics.slice(0, 4).map(t => `<li><a href="${s.slug}">${t}</a></li>`).join('')}</ul></div>`).join('\n        ')}
+        <div class="mega-col mega-more"><a class="mega-h" href="journey.html">More</a><ul><li><a href="start-here.html">Start Here</a></li><li><a href="resources.html">Tools &amp; Downloads</a></li><li><a href="consultations.html">Consultations</a></li><li><a href="learning-centre.html">Learning Centre</a></li></ul></div>
+      </div>`;
+
 function layout({ file, title, desc, section, body, searchCat = 'Page', keywords = '' }) {
   search.push({ t: title.replace(/ \| True North$/, ''), k: (desc + ' ' + keywords).toLowerCase(), u: file, c: searchCat });
-  const nav = NAV.map(([href, label, key]) => `<a href="${href}"${key === section ? ' aria-current="page"' : ''}>${label}</a>`).join('\n      ');
+  const nav = NAV.map(([href, label, key]) => {
+    const a = `<a href="${href}"${key === section ? ' aria-current="page"' : ''}>${label}</a>`;
+    return key === 'journey' ? `<div class="has-sub">${a}<button class="sub-toggle" type="button" aria-expanded="false" aria-controls="mega" aria-label="Show the seven stages">${ic('chev')}</button>${MEGA}</div>` : a;
+  }).join('\n      ');
   const html = `<!doctype html>
 <html lang="en-AU">
 <head>
@@ -181,6 +190,38 @@ const starts = `<div class="starts">
 
 const disclaimer = `<div class="callout">${ic('info')}<p><b>This is our story.</b> What worked for us may be useful for your situation. True North provides independent education and guidance; it does not replace your builder, architect, certifier, engineer, lawyer or financial adviser.</p></div>`;
 
+const TAGLINES = { find: 'Choose your land wisely', evaluate: 'Understand the site', design: 'Plan for how you live', budget: 'Know the likely costs', approvals: 'Navigate requirements', build: 'Choose with confidence', handover: 'Know what to check' };
+
+/* Eight tiles (Start Here + the seven stages). Each opens a panel under its row of tiles;
+   --o4 / --o2 / --o1 give the grid order at 4, 2 and 1 columns so a panel always lands under the right row. */
+function journeyTiles() {
+  const items = [{ k: 'start', name: 'Start Here', slug: 'start-here.html' }, ...STAGES.map(s => ({ ...s, tag: TAGLINES[s.k] || s.hint }))];
+  const order = (k, cols) => { const r = Math.ceil(k / cols); const before = (r - 1) * (cols + 1); return { tile: before + k - (r - 1) * cols, panel: before + cols + 1 }; };
+  const tiles = [], panels = [];
+  items.forEach((it, i) => {
+    const k = i + 1, o4 = order(k, 4), o2 = order(k, 2), o1 = order(k, 1);
+    const id = `tp-${it.k}`;
+    const o = t => `style="--o4:${o4[t]};--o2:${o2[t]};--o1:${o1[t]}"`;
+    tiles.push(it.k === 'start'
+      ? `<a class="tile tile-start sr-reveal" href="${it.slug}" data-tile aria-controls="${id}" ${o('tile')}><span class="go-dot">${ic('arrow')}</span><span class="t-name">Start Here</span><span class="t-sub">Meet TRUE NORTH. Your guide to the whole seven-step journey.</span></a>`
+      : `<a class="tile sr-reveal" href="${it.slug}" data-tile aria-controls="${id}" ${o('tile')}><span class="t-img"><img src="${it.card}" alt="" loading="lazy"></span><span class="t-txt"><span class="n">${it.n}</span><span><span class="t-name">${shortName(it)}</span><span class="t-sub">${it.tag}</span></span></span></a>`);
+    let inner;
+    if (it.k === 'start') {
+      inner = `<div class="tp-copy"><h3>Start Here</h3><p>New to building, or not sure where you are in the process? Begin with the short guide to how True North works, or jump in at the stage that matches your project.</p><div class="tp-actions"><a class="btn btn-primary" href="start-here.html">Open the Start Here guide ${ic('arrow')}</a><a class="btn btn-ghost" href="journey.html">See all 7 stages</a></div></div>
+        <ul class="tp-links"><li><a href="stage-find.html"><b>I’m finding land or assessing a property</b><small>Find · Evaluate</small></a></li><li><a href="stage-design.html"><b>I’m planning or designing a home</b><small>Design · Budget</small></a></li><li><a href="stage-approvals.html"><b>I already have plans or a builder</b><small>Approvals · Contract &amp; Build</small></a></li></ul>`;
+    } else {
+      const pdf = it.resources.find(r => r[0] === 'pdf'), vid = it.resources.find(r => r[0] === 'vid');
+      inner = `<div class="tp-copy"><h3>${it.n}. ${it.name}</h3><p>${it.intro}</p><div class="tp-actions"><a class="btn btn-primary" href="${it.slug}">Go to the full stage ${ic('arrow')}</a></div></div>
+        <div class="tp-res">
+          ${vid ? `<a class="tp-item" href="${it.slug}#video"><span class="ic">${ic('play', ' style="width:20px;height:20px"')}</span><span><b>${vid[1]}</b><small>Short video · ${vid[2]}</small> ${chip(vid[3])}</span></a>` : ''}
+          ${pdf ? `<a class="tp-item" href="resources.html"><span class="ic">${ic('pdf', ' style="width:22px;height:22px"')}</span><span><b>${pdf[1]}</b><small>PDF download</small> ${chip(pdf[3])}</span></a>` : ''}
+        </div>`;
+    }
+    panels.push(`<div class="tile-panel" id="${id}" hidden role="region" aria-label="${shortName(it)} quick look" ${o('panel')}><button class="tp-close" type="button" aria-label="Close">${ic('close')}</button>${inner}</div>`);
+  });
+  return `<div class="tiles" id="tiles">\n      ${tiles.join('\n      ')}\n      ${panels.join('\n      ')}\n    </div>`;
+}
+
 /* ================================================================== HOME */
 function home() {
   const slides = [
@@ -273,9 +314,7 @@ ${slides.map((s, i) => `    <div class="slide${i === 0 ? ' is-active' : ''}" rol
       <div style="display:grid;gap:14px"><p class="eyebrow">The seven-stage homeowner journey</p><h2>Where are you in your project?</h2><p class="lede">Choose your stage. Each one has a short overview, common mistakes, practical steps and the guides and tools that help.</p></div>
       <a class="btn btn-ghost" href="journey.html">See the full journey</a>
     </div>
-    <div class="stage-cards">
-      ${STAGES.map(stageCard).join('\n      ')}
-    </div>
+    ${journeyTiles()}
   </div>
 </section>
 

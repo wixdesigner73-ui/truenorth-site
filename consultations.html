@@ -14,6 +14,7 @@
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
   <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 2v6h6M9 13h6M9 17h6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
@@ -44,7 +45,16 @@
       <span>True North<sup>®</sup><small>Independent building guidance</small></span>
     </a>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="journey.html">Building Journey</a>
+      <div class="has-sub"><a href="journey.html">Building Journey</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="mega" aria-label="Show the seven stages"><svg class="icon"><use href="#i-chev"/></svg></button><div class="mega" id="mega">
+        <div class="mega-col"><a class="mega-h" href="stage-find.html"><span>1</span>Find</a><ul><li><a href="stage-find.html">Build or buy?</a></li><li><a href="stage-find.html">Knock down, rebuild or renovate</a></li><li><a href="stage-find.html">Choosing land</a></li><li><a href="stage-find.html">Looking at a block</a></li></ul></div>
+        <div class="mega-col"><a class="mega-h" href="stage-evaluate.html"><span>2</span>Evaluate</a><ul><li><a href="stage-evaluate.html">Survey plan</a></li><li><a href="stage-evaluate.html">Contour map</a></li><li><a href="stage-evaluate.html">Compass orientation</a></li><li><a href="stage-evaluate.html">North arrow</a></li></ul></div>
+        <div class="mega-col"><a class="mega-h" href="stage-design.html"><span>3</span>Design</a><ul><li><a href="stage-design.html">Sketching ideas</a></li><li><a href="stage-design.html">Pencil & notebook</a></li><li><a href="stage-design.html">Plans on the desk</a></li><li><a href="stage-design.html">Writing a design brief</a></li></ul></div>
+        <div class="mega-col"><a class="mega-h" href="stage-budget.html"><span>4</span>Budget</a><ul><li><a href="stage-budget.html">Spreadsheet</a></li><li><a href="stage-budget.html">Cost centres</a></li><li><a href="stage-budget.html">Specwriter</a></li><li><a href="stage-budget.html">Allowances & provisional sums</a></li></ul></div>
+        <div class="mega-col"><a class="mega-h" href="stage-approvals.html"><span>5</span>Approvals</a><ul><li><a href="stage-approvals.html">Compliance reports</a></li><li><a href="stage-approvals.html">Development Approval (DA)</a></li><li><a href="stage-approvals.html">Construction Certificate (CC)</a></li><li><a href="stage-approvals.html">Energy rating</a></li></ul></div>
+        <div class="mega-col"><a class="mega-h" href="stage-contract-build.html"><span>6</span>Contract & Build</a><ul><li><a href="stage-contract-build.html">Contractor pre-qualification</a></li><li><a href="stage-contract-build.html">Tender process</a></li><li><a href="stage-contract-build.html">Contracts</a></li><li><a href="stage-contract-build.html">Progress payments</a></li></ul></div>
+        <div class="mega-col"><a class="mega-h" href="stage-handover.html"><span>7</span>Handover</a><ul><li><a href="stage-handover.html">Communication</a></li><li><a href="stage-handover.html">Site management</a></li><li><a href="stage-handover.html">Practical completion</a></li><li><a href="stage-handover.html">Handover</a></li></ul></div>
+        <div class="mega-col mega-more"><a class="mega-h" href="journey.html">More</a><ul><li><a href="start-here.html">Start Here</a></li><li><a href="resources.html">Tools &amp; Downloads</a></li><li><a href="consultations.html">Consultations</a></li><li><a href="learning-centre.html">Learning Centre</a></li></ul></div>
+      </div></div>
       <a href="house-plans.html">House Plans</a>
       <a href="resources.html">Tools &amp; Downloads</a>
       <a href="learning-centre.html">Learning Centre</a>

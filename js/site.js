@@ -14,6 +14,40 @@
     });
   }
 
+
+  /* ---------- header dropdown (Building Journey) ---------- */
+  var subBtn = document.querySelector('.sub-toggle'), mega = document.getElementById('mega');
+  if (subBtn && mega) {
+    var setMega = function (o) { mega.classList.toggle('open', o); subBtn.setAttribute('aria-expanded', o); };
+    subBtn.addEventListener('click', function (e) { e.stopPropagation(); setMega(!mega.classList.contains('open')); });
+    document.addEventListener('click', function (e) { if (!e.target.closest('.has-sub')) setMega(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && mega.classList.contains('open')) { setMega(false); subBtn.focus(); } });
+  }
+
+  /* ---------- home tiles: one expanding panel at a time ---------- */
+  var tiles = [].slice.call(document.querySelectorAll('[data-tile]'));
+  if (tiles.length) {
+    var openTile = function (t) {
+      tiles.forEach(function (x) {
+        var on = x === t, p = document.getElementById(x.getAttribute('aria-controls'));
+        x.setAttribute('aria-expanded', on); if (p) p.hidden = !on;
+      });
+      if (t) { var panel = document.getElementById(t.getAttribute('aria-controls')); panel.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' }); }
+    };
+    tiles.forEach(function (t) {
+      t.setAttribute('role', 'button'); t.setAttribute('aria-expanded', 'false');
+      t.addEventListener('click', function (e) { e.preventDefault(); openTile(t.getAttribute('aria-expanded') === 'true' ? null : t); });
+      t.addEventListener('keydown', function (e) { if (e.key === ' ') { e.preventDefault(); t.click(); } });
+    });
+    document.querySelectorAll('.tp-close').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var p = b.closest('.tile-panel'), t = tiles.filter(function (x) { return x.getAttribute('aria-controls') === p.id; })[0];
+        openTile(null); if (t) t.focus();
+      });
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { var o = tiles.filter(function (x) { return x.getAttribute('aria-expanded') === 'true'; })[0]; if (o) { openTile(null); o.focus(); } } });
+  }
+
   /* ---------- home slider ---------- */
   var slider = document.querySelector('.slider');
   if (slider) {

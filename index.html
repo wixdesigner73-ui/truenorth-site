@@ -14,6 +14,7 @@
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
   <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 2v6h6M9 13h6M9 17h6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
@@ -44,7 +45,16 @@
       <span>True North<sup>®</sup><small>Independent building guidance</small></span>
     </a>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="journey.html">Building Journey</a>
+      <div class="has-sub"><a href="journey.html">Building Journey</a><button class="sub-toggle" type="button" aria-expanded="false" aria-controls="mega" aria-label="Show the seven stages"><svg class="icon"><use href="#i-chev"/></svg></button><div class="mega" id="mega">
+        <div class="mega-col"><a class="mega-h" href="stage-find.html"><span>1</span>Find</a><ul><li><a href="stage-find.html">Build or buy?</a></li><li><a href="stage-find.html">Knock down, rebuild or renovate</a></li><li><a href="stage-find.html">Choosing land</a></li><li><a href="stage-find.html">Looking at a block</a></li></ul></div>
+        <div class="mega-col"><a class="mega-h" href="stage-evaluate.html"><span>2</span>Evaluate</a><ul><li><a href="stage-evaluate.html">Survey plan</a></li><li><a href="stage-evaluate.html">Contour map</a></li><li><a href="stage-evaluate.html">Compass orientation</a></li><li><a href="stage-evaluate.html">North arrow</a></li></ul></div>
+        <div class="mega-col"><a class="mega-h" href="stage-design.html"><span>3</span>Design</a><ul><li><a href="stage-design.html">Sketching ideas</a></li><li><a href="stage-design.html">Pencil & notebook</a></li><li><a href="stage-design.html">Plans on the desk</a></li><li><a href="stage-design.html">Writing a design brief</a></li></ul></div>
+        <div class="mega-col"><a class="mega-h" href="stage-budget.html"><span>4</span>Budget</a><ul><li><a href="stage-budget.html">Spreadsheet</a></li><li><a href="stage-budget.html">Cost centres</a></li><li><a href="stage-budget.html">Specwriter</a></li><li><a href="stage-budget.html">Allowances & provisional sums</a></li></ul></div>
+        <div class="mega-col"><a class="mega-h" href="stage-approvals.html"><span>5</span>Approvals</a><ul><li><a href="stage-approvals.html">Compliance reports</a></li><li><a href="stage-approvals.html">Development Approval (DA)</a></li><li><a href="stage-approvals.html">Construction Certificate (CC)</a></li><li><a href="stage-approvals.html">Energy rating</a></li></ul></div>
+        <div class="mega-col"><a class="mega-h" href="stage-contract-build.html"><span>6</span>Contract & Build</a><ul><li><a href="stage-contract-build.html">Contractor pre-qualification</a></li><li><a href="stage-contract-build.html">Tender process</a></li><li><a href="stage-contract-build.html">Contracts</a></li><li><a href="stage-contract-build.html">Progress payments</a></li></ul></div>
+        <div class="mega-col"><a class="mega-h" href="stage-handover.html"><span>7</span>Handover</a><ul><li><a href="stage-handover.html">Communication</a></li><li><a href="stage-handover.html">Site management</a></li><li><a href="stage-handover.html">Practical completion</a></li><li><a href="stage-handover.html">Handover</a></li></ul></div>
+        <div class="mega-col mega-more"><a class="mega-h" href="journey.html">More</a><ul><li><a href="start-here.html">Start Here</a></li><li><a href="resources.html">Tools &amp; Downloads</a></li><li><a href="consultations.html">Consultations</a></li><li><a href="learning-centre.html">Learning Centre</a></li></ul></div>
+      </div></div>
       <a href="house-plans.html">House Plans</a>
       <a href="resources.html">Tools &amp; Downloads</a>
       <a href="learning-centre.html">Learning Centre</a>
@@ -257,35 +267,52 @@
       <div style="display:grid;gap:14px"><p class="eyebrow">The seven-stage homeowner journey</p><h2>Where are you in your project?</h2><p class="lede">Choose your stage. Each one has a short overview, common mistakes, practical steps and the guides and tools that help.</p></div>
       <a class="btn btn-ghost" href="journey.html">See the full journey</a>
     </div>
-    <div class="stage-cards">
-      <a class="stage-card sr-reveal" href="stage-find.html">
-        <div class="ph"><img src="img/s-find.jpg" alt="" loading="lazy"><span class="n">1</span></div>
-        <div class="txt"><h3>Find</h3><p>Choosing land, or a house to renovate.</p><span class="go">Explore Find <svg class="icon"><use href="#i-arrow"/></svg></span></div>
-      </a>
-      <a class="stage-card sr-reveal" href="stage-evaluate.html">
-        <div class="ph"><img src="img/s-evaluate.jpg" alt="" loading="lazy"><span class="n">2</span></div>
-        <div class="txt"><h3>Evaluate</h3><p>Survey, contours and orientation.</p><span class="go">Explore Evaluate <svg class="icon"><use href="#i-arrow"/></svg></span></div>
-      </a>
-      <a class="stage-card sr-reveal" href="stage-design.html">
-        <div class="ph"><img src="img/s-design.jpg" alt="" loading="lazy"><span class="n">3</span></div>
-        <div class="txt"><h3>Design</h3><p>Sketches, brief and plans.</p><span class="go">Explore Design <svg class="icon"><use href="#i-arrow"/></svg></span></div>
-      </a>
-      <a class="stage-card sr-reveal" href="stage-budget.html">
-        <div class="ph"><img src="img/s-budget.jpg" alt="" loading="lazy"><span class="n">4</span></div>
-        <div class="txt"><h3>Budget</h3><p>Spreadsheets, cost centres, Specwriter.</p><span class="go">Explore Budget <svg class="icon"><use href="#i-arrow"/></svg></span></div>
-      </a>
-      <a class="stage-card sr-reveal" href="stage-approvals.html">
-        <div class="ph"><img src="img/bg-approvals.jpg" alt="" loading="lazy"><span class="n">5</span></div>
-        <div class="txt"><h3>Approvals</h3><p>Reports, DA, CC and compliance.</p><span class="go">Explore Approvals <svg class="icon"><use href="#i-arrow"/></svg></span></div>
-      </a>
-      <a class="stage-card sr-reveal" href="stage-contract-build.html">
-        <div class="ph"><img src="img/s-build.jpg" alt="" loading="lazy"><span class="n">6</span></div>
-        <div class="txt"><h3>Contract & Build</h3><p>Tender, contract and construction.</p><span class="go">Explore Build <svg class="icon"><use href="#i-arrow"/></svg></span></div>
-      </a>
-      <a class="stage-card sr-reveal" href="stage-handover.html">
-        <div class="ph"><img src="img/bg-handover.jpg" alt="" loading="lazy"><span class="n">7</span></div>
-        <div class="txt"><h3>Handover</h3><p>Site management, handover and warranty.</p><span class="go">Explore Handover <svg class="icon"><use href="#i-arrow"/></svg></span></div>
-      </a>
+    <div class="tiles" id="tiles">
+      <a class="tile tile-start sr-reveal" href="start-here.html" data-tile aria-controls="tp-start" style="--o4:1;--o2:1;--o1:1"><span class="go-dot"><svg class="icon"><use href="#i-arrow"/></svg></span><span class="t-name">Start Here</span><span class="t-sub">Meet TRUE NORTH. Your guide to the whole seven-step journey.</span></a>
+      <a class="tile sr-reveal" href="stage-find.html" data-tile aria-controls="tp-find" style="--o4:2;--o2:2;--o1:3"><span class="t-img"><img src="img/s-find.jpg" alt="" loading="lazy"></span><span class="t-txt"><span class="n">1</span><span><span class="t-name">Find</span><span class="t-sub">Choose your land wisely</span></span></span></a>
+      <a class="tile sr-reveal" href="stage-evaluate.html" data-tile aria-controls="tp-evaluate" style="--o4:3;--o2:4;--o1:5"><span class="t-img"><img src="img/s-evaluate.jpg" alt="" loading="lazy"></span><span class="t-txt"><span class="n">2</span><span><span class="t-name">Evaluate</span><span class="t-sub">Understand the site</span></span></span></a>
+      <a class="tile sr-reveal" href="stage-design.html" data-tile aria-controls="tp-design" style="--o4:4;--o2:5;--o1:7"><span class="t-img"><img src="img/s-design.jpg" alt="" loading="lazy"></span><span class="t-txt"><span class="n">3</span><span><span class="t-name">Design</span><span class="t-sub">Plan for how you live</span></span></span></a>
+      <a class="tile sr-reveal" href="stage-budget.html" data-tile aria-controls="tp-budget" style="--o4:6;--o2:7;--o1:9"><span class="t-img"><img src="img/s-budget.jpg" alt="" loading="lazy"></span><span class="t-txt"><span class="n">4</span><span><span class="t-name">Budget</span><span class="t-sub">Know the likely costs</span></span></span></a>
+      <a class="tile sr-reveal" href="stage-approvals.html" data-tile aria-controls="tp-approvals" style="--o4:7;--o2:8;--o1:11"><span class="t-img"><img src="img/bg-approvals.jpg" alt="" loading="lazy"></span><span class="t-txt"><span class="n">5</span><span><span class="t-name">Approvals</span><span class="t-sub">Navigate requirements</span></span></span></a>
+      <a class="tile sr-reveal" href="stage-contract-build.html" data-tile aria-controls="tp-build" style="--o4:8;--o2:10;--o1:13"><span class="t-img"><img src="img/s-build.jpg" alt="" loading="lazy"></span><span class="t-txt"><span class="n">6</span><span><span class="t-name">Build</span><span class="t-sub">Choose with confidence</span></span></span></a>
+      <a class="tile sr-reveal" href="stage-handover.html" data-tile aria-controls="tp-handover" style="--o4:9;--o2:11;--o1:15"><span class="t-img"><img src="img/bg-handover.jpg" alt="" loading="lazy"></span><span class="t-txt"><span class="n">7</span><span><span class="t-name">Handover</span><span class="t-sub">Know what to check</span></span></span></a>
+      <div class="tile-panel" id="tp-start" hidden role="region" aria-label="Start Here quick look" style="--o4:5;--o2:3;--o1:2"><button class="tp-close" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button><div class="tp-copy"><h3>Start Here</h3><p>New to building, or not sure where you are in the process? Begin with the short guide to how True North works, or jump in at the stage that matches your project.</p><div class="tp-actions"><a class="btn btn-primary" href="start-here.html">Open the Start Here guide <svg class="icon"><use href="#i-arrow"/></svg></a><a class="btn btn-ghost" href="journey.html">See all 7 stages</a></div></div>
+        <ul class="tp-links"><li><a href="stage-find.html"><b>I’m finding land or assessing a property</b><small>Find · Evaluate</small></a></li><li><a href="stage-design.html"><b>I’m planning or designing a home</b><small>Design · Budget</small></a></li><li><a href="stage-approvals.html"><b>I already have plans or a builder</b><small>Approvals · Contract &amp; Build</small></a></li></ul></div>
+      <div class="tile-panel" id="tp-find" hidden role="region" aria-label="Find quick look" style="--o4:5;--o2:3;--o1:4"><button class="tp-close" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button><div class="tp-copy"><h3>1. Find</h3><p>Before you fall for a view or a price, decide whether to build, buy, knock down or renovate, and learn what to look for when you inspect.</p><div class="tp-actions"><a class="btn btn-primary" href="stage-find.html">Go to the full stage <svg class="icon"><use href="#i-arrow"/></svg></a></div></div>
+        <div class="tp-res">
+          <a class="tp-item" href="stage-find.html#video"><span class="ic"><svg class="icon" style="width:20px;height:20px"><use href="#i-play"/></svg></span><span><b>What to look for on your first visit</b><small>Short video · 3–5 minutes</small> <span class="chip vid">Video · coming soon</span></span></a>
+          <a class="tp-item" href="resources.html"><span class="ic"><svg class="icon" style="width:22px;height:22px"><use href="#i-pdf"/></svg></span><span><b>LAND — Finding the Right Land</b><small>PDF download</small> <span class="chip free">Free · coming soon</span></span></a>
+        </div></div>
+      <div class="tile-panel" id="tp-evaluate" hidden role="region" aria-label="Evaluate quick look" style="--o4:5;--o2:6;--o1:6"><button class="tp-close" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button><div class="tp-copy"><h3>2. Evaluate</h3><p>The survey plan tells you what the site will let you build. Orientation decides how the house will feel to live in.</p><div class="tp-actions"><a class="btn btn-primary" href="stage-evaluate.html">Go to the full stage <svg class="icon"><use href="#i-arrow"/></svg></a></div></div>
+        <div class="tp-res">
+          <a class="tp-item" href="stage-evaluate.html#video"><span class="ic"><svg class="icon" style="width:20px;height:20px"><use href="#i-play"/></svg></span><span><b>Using the Sun Compass on your site</b><small>Short video · 3–5 minutes</small> <span class="chip vid">Video · coming soon</span></span></a>
+          <a class="tp-item" href="resources.html"><span class="ic"><svg class="icon" style="width:22px;height:22px"><use href="#i-pdf"/></svg></span><span><b>Land and existing-home due diligence checklist</b><small>PDF download</small> <span class="chip free">Free · coming soon</span></span></a>
+        </div></div>
+      <div class="tile-panel" id="tp-design" hidden role="region" aria-label="Design quick look" style="--o4:5;--o2:6;--o1:8"><button class="tp-close" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button><div class="tp-copy"><h3>3. Design</h3><p>Most of a home’s comfort and running cost is decided at the design stage. Start with a pencil, a notebook and the sun.</p><div class="tp-actions"><a class="btn btn-primary" href="stage-design.html">Go to the full stage <svg class="icon"><use href="#i-arrow"/></svg></a></div></div>
+        <div class="tp-res">
+          <a class="tp-item" href="stage-design.html#video"><span class="ic"><svg class="icon" style="width:20px;height:20px"><use href="#i-play"/></svg></span><span><b>From sketch to floor plan</b><small>Short video · 3–5 minutes</small> <span class="chip vid">Video · coming soon</span></span></a>
+          <a class="tp-item" href="resources.html"><span class="ic"><svg class="icon" style="width:22px;height:22px"><use href="#i-pdf"/></svg></span><span><b>The nine questions you must discuss with a building designer</b><small>PDF download</small> <span class="chip soon">Being updated</span></span></a>
+        </div></div>
+      <div class="tile-panel" id="tp-budget" hidden role="region" aria-label="Budget quick look" style="--o4:10;--o2:9;--o1:10"><button class="tp-close" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button><div class="tp-copy"><h3>4. Budget</h3><p>Break the build into cost centres, write a proper specification and compare like with like.</p><div class="tp-actions"><a class="btn btn-primary" href="stage-budget.html">Go to the full stage <svg class="icon"><use href="#i-arrow"/></svg></a></div></div>
+        <div class="tp-res">
+          <a class="tp-item" href="stage-budget.html#video"><span class="ic"><svg class="icon" style="width:20px;height:20px"><use href="#i-play"/></svg></span><span><b>How builders price a house</b><small>Short video · 3–5 minutes</small> <span class="chip vid">Video · coming soon</span></span></a>
+          <a class="tp-item" href="resources.html"><span class="ic"><svg class="icon" style="width:22px;height:22px"><use href="#i-pdf"/></svg></span><span><b>Owner Builder Cost Planner</b><small>PDF download</small> <span class="chip soon">Coming soon</span></span></a>
+        </div></div>
+      <div class="tile-panel" id="tp-approvals" hidden role="region" aria-label="Approvals quick look" style="--o4:10;--o2:9;--o1:12"><button class="tp-close" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button><div class="tp-copy"><h3>5. Approvals</h3><p>Know which reports your council needs, the order they come in, and how to avoid requests for more information.</p><div class="tp-actions"><a class="btn btn-primary" href="stage-approvals.html">Go to the full stage <svg class="icon"><use href="#i-arrow"/></svg></a></div></div>
+        <div class="tp-res">
+          <a class="tp-item" href="stage-approvals.html#video"><span class="ic"><svg class="icon" style="width:20px;height:20px"><use href="#i-play"/></svg></span><span><b>DA vs CC in plain English</b><small>Short video · 3–5 minutes</small> <span class="chip vid">Video · coming soon</span></span></a>
+          <a class="tp-item" href="resources.html"><span class="ic"><svg class="icon" style="width:22px;height:22px"><use href="#i-pdf"/></svg></span><span><b>The approvals roadmap</b><small>PDF download</small> <span class="chip soon">Coming soon</span></span></a>
+        </div></div>
+      <div class="tile-panel" id="tp-build" hidden role="region" aria-label="Build quick look" style="--o4:10;--o2:12;--o1:14"><button class="tp-close" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button><div class="tp-copy"><h3>6. Contract & Build</h3><p>Pre-qualify builders, run a fair tender, and understand what you are signing before work begins.</p><div class="tp-actions"><a class="btn btn-primary" href="stage-contract-build.html">Go to the full stage <svg class="icon"><use href="#i-arrow"/></svg></a></div></div>
+        <div class="tp-res">
+          <a class="tp-item" href="stage-contract-build.html#video"><span class="ic"><svg class="icon" style="width:20px;height:20px"><use href="#i-play"/></svg></span><span><b>Reading your building contract</b><small>Short video · 3–5 minutes</small> <span class="chip vid">Video · coming soon</span></span></a>
+          <a class="tp-item" href="resources.html"><span class="ic"><svg class="icon" style="width:22px;height:22px"><use href="#i-pdf"/></svg></span><span><b>31-Point Home Building Contract Guide</b><small>PDF download</small> <span class="chip soon">Coming soon</span></span></a>
+        </div></div>
+      <div class="tile-panel" id="tp-handover" hidden role="region" aria-label="Handover quick look" style="--o4:10;--o2:12;--o1:16"><button class="tp-close" type="button" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button><div class="tp-copy"><h3>7. Handover</h3><p>Good communication and site management carry you to a clean handover and a warranty you understand.</p><div class="tp-actions"><a class="btn btn-primary" href="stage-handover.html">Go to the full stage <svg class="icon"><use href="#i-arrow"/></svg></a></div></div>
+        <div class="tp-res">
+          <a class="tp-item" href="stage-handover.html#video"><span class="ic"><svg class="icon" style="width:20px;height:20px"><use href="#i-play"/></svg></span><span><b>Your final inspection, step by step</b><small>Short video · 3–5 minutes</small> <span class="chip vid">Video · coming soon</span></span></a>
+          <a class="tp-item" href="resources.html"><span class="ic"><svg class="icon" style="width:22px;height:22px"><use href="#i-pdf"/></svg></span><span><b>Handover inspection checklist</b><small>PDF download</small> <span class="chip soon">Coming soon</span></span></a>
+        </div></div>
     </div>
   </div>
 </section>
