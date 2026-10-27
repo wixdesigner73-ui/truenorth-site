@@ -1,4 +1,5 @@
 /* True North — "Where are you in your project?" section (with expanding quick-look panels)
+   Fonts match the Wix site: headings = Arial Narrow Bold (Wix theme heading font), paragraphs = Roboto.
    Wix Custom Element. Self-contained (Shadow DOM) so Wix styles can't break it.
 
    In Wix: Add Elements → Embed Code → Custom Element → Choose Source →
@@ -67,13 +68,13 @@ const ICON = {
 };
 
 const CSS = `
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"); /* fallback only; the Wix site fonts are used when present */
 :host{display:block;
   --blue:#29aacb;--blue-deep:#0d6d8a;--blue-ink:#0b4458;--yellow:#f5ce2e;--yellow-soft:#fdf3c4;
   --ink:#15313d;--ink-2:#44606b;--ink-3:#6f8790;--mist:#f1f7f9;--line:#d3e3e9;
-  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
-  --body:"Barlow","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --display:wfont_b6fd1f_4e6e90d1a8004009a6ecd2f68ad2add6,wf_4e6e90d1a8004009a6ecd2f68,orig_arial_narrow_bold,"Arial Narrow",Arial,sans-serif;
+  --body:wfont_069f35_23de2075afcc42cc848bac4f05c000f8,wf_23de2075afcc42cc848bac4f0,orig_roboto,Roboto,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:var(--body);
   --gutter:clamp(16px,4vw,40px);--ease:cubic-bezier(.2,.8,.2,1)}
 *{box-sizing:border-box}
 .icon{width:18px;height:18px;flex:none}
@@ -86,7 +87,7 @@ const CSS = `
 h2,h3{margin:0;font-family:var(--display);font-weight:700;line-height:1.05;letter-spacing:.005em;text-wrap:balance}
 h2{font-size:clamp(2.2rem,5vw,3.2rem);text-transform:uppercase}
 .lede{margin:0;font-size:1.15rem;color:var(--ink-2);max-width:62ch}
-.btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--display);font-weight:600;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:.72em 1.3em;border-radius:3px;border:2px solid transparent;line-height:1.1;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--display);font-weight:700;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:.72em 1.3em;border-radius:3px;border:2px solid transparent;line-height:1.1;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
 .btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent;white-space:nowrap}
 .btn-ghost:hover{background:var(--ink);color:#fff}
 .btn-primary{background:var(--blue);color:#fff}
