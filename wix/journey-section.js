@@ -6,53 +6,54 @@
      Tag name:   tn-journey-section
    Optional attributes (set in the Wix settings panel):
      site-url = where the stage pages live (default below)
-     img-url  = where the images live (default: site-url + "img/")
+     img-url  = where the images live (default: GitHub Pages img folder)
 
    Behaviour: click a tile → its panel expands below that row (one open at a time).
    Click it again, press the X, or press Esc to close. */
-const SITE = 'https://wixdesigner73-ui.github.io/truenorth-site/';
+const SITE = 'https://webloomstudio.wixstudio.com/truenorth/';          // Wix page links (no .html)
+const IMG  = 'https://wixdesigner73-ui.github.io/truenorth-site/img/';   // images hosted on GitHub Pages
 
 /* o = grid order at [4 columns, 2 columns, 1 column] for the tile and for its panel */
 const START = {
-  key: 'start', name: 'Start Here', href: 'start-here.html',
+  key: 'start', name: 'Start Here', href: 'start-here',
   sub: 'Meet TRUE NORTH. Your guide to the whole seven-step journey.',
   tile: [1, 1, 1], panel: [5, 3, 2],
   title: 'Start Here',
   text: 'New to building, or not sure where you are in the process? Begin with the short guide to how True North works, or jump in at the stage that matches your project.',
-  cta: ['Open the Start Here guide', 'start-here.html'], cta2: ['See all 7 stages', 'journey.html'],
+  cta: ['Open the Start Here guide', 'start-here'], cta2: ['See all 7 stages', 'journey'],
   links: [
-    ['I’m finding land or assessing a property', 'Find · Evaluate', 'stage-find.html'],
-    ['I’m planning or designing a home', 'Design · Budget', 'stage-design.html'],
-    ['I already have plans or a builder', 'Approvals · Contract &amp; Build', 'stage-approvals.html'],
+    ['I’m finding land or assessing a property', 'Find · Evaluate', 'find'],
+    ['I’m planning or designing a home', 'Design · Budget', 'design'],
+    ['I already have plans or a builder', 'Approvals · Contract &amp; Build', 'approval'],
   ],
 };
 
 const STAGES = [
-  { key: 'find', n: 1, name: 'Find', sub: 'Choose your land wisely', href: 'stage-find.html', img: 's-find.jpg',
+  { key: 'find', n: 1, name: 'Find', sub: 'Choose your land wisely', href: 'find', img: 's-find.jpg',
     tile: [2, 2, 3], panel: [5, 3, 4], title: '1. Find',
     text: 'Before you fall for a view or a price, decide whether to build, buy, knock down or renovate, and learn what to look for when you inspect.',
     video: 'What to look for on your first visit', pdf: 'LAND — Finding the Right Land', pdfChip: ['free', 'Free · coming soon'] },
-  { key: 'evaluate', n: 2, name: 'Evaluate', sub: 'Understand the site', href: 'stage-evaluate.html', img: 's-evaluate.jpg',
+  { key: 'evaluate', n: 2, name: 'Evaluate', sub: 'Understand the site', href: 'evaluate', img: 's-evaluate.jpg',
     tile: [3, 4, 5], panel: [5, 6, 6], title: '2. Evaluate',
     text: 'The survey plan tells you what the site will let you build. Orientation decides how the house will feel to live in.',
     video: 'Using the Sun Compass on your site', pdf: 'Land and existing-home due diligence checklist', pdfChip: ['free', 'Free · coming soon'] },
-  { key: 'design', n: 3, name: 'Design', sub: 'Plan for how you live', href: 'stage-design.html', img: 's-design.jpg',
+  { key: 'design', n: 3, name: 'Design', sub: 'Plan for how you live', href: 'design', img: 's-design.jpg',
     tile: [4, 5, 7], panel: [5, 6, 8], title: '3. Design',
     text: 'Most of a home’s comfort and running cost is decided at the design stage. Start with a pencil, a notebook and the sun.',
     video: 'From sketch to floor plan', pdf: 'The nine questions you must discuss with a building designer', pdfChip: ['soon', 'Being updated'] },
-  { key: 'budget', n: 4, name: 'Budget', sub: 'Know the likely costs', href: 'stage-budget.html', img: 's-budget.jpg',
+  { key: 'budget', n: 4, name: 'Budget', sub: 'Know the likely costs', href: 'budget', img: 's-budget.jpg',
     tile: [6, 7, 9], panel: [10, 9, 10], title: '4. Budget',
     text: 'Break the build into cost centres, write a proper specification and compare like with like.',
     video: 'How builders price a house', pdf: 'Owner Builder Cost Planner', pdfChip: ['soon', 'Coming soon'] },
-  { key: 'approvals', n: 5, name: 'Approvals', sub: 'Navigate requirements', href: 'stage-approvals.html', img: 'bg-approvals.jpg',
+  { key: 'approvals', n: 5, name: 'Approvals', sub: 'Navigate requirements', href: 'approval', img: 'bg-approvals.jpg',
     tile: [7, 8, 11], panel: [10, 9, 12], title: '5. Approvals',
     text: 'Know which reports your council needs, the order they come in, and how to avoid requests for more information.',
     video: 'DA vs CC in plain English', pdf: 'The approvals roadmap', pdfChip: ['soon', 'Coming soon'] },
-  { key: 'build', n: 6, name: 'Build', sub: 'Choose with confidence', href: 'stage-contract-build.html', img: 's-build.jpg',
+  { key: 'build', n: 6, name: 'Build', sub: 'Choose with confidence', href: 'build', img: 's-build.jpg',
     tile: [8, 10, 13], panel: [10, 12, 14], title: '6. Contract &amp; Build',
     text: 'Pre-qualify builders, run a fair tender, and understand what you are signing before work begins.',
     video: 'Reading your building contract', pdf: '31-Point Home Building Contract Guide', pdfChip: ['soon', 'Coming soon'] },
-  { key: 'handover', n: 7, name: 'Handover', sub: 'Know what to check', href: 'stage-handover.html', img: 'bg-handover.jpg',
+  { key: 'handover', n: 7, name: 'Handover', sub: 'Know what to check', href: 'handover', img: 'bg-handover.jpg',
     tile: [9, 11, 15], panel: [10, 12, 16], title: '7. Handover',
     text: 'Good communication and site management carry you to a clean handover and a warranty you understand.',
     video: 'Your final inspection, step by step', pdf: 'Handover inspection checklist', pdfChip: ['soon', 'Coming soon'] },
@@ -143,7 +144,7 @@ class TnJourneySection extends HTMLElement {
 
   render() {
     const site = this.getAttribute('site-url') || SITE;
-    const imgs = this.getAttribute('img-url') || site + 'img/';
+    const imgs = this.getAttribute('img-url') || IMG;
     const o = a => `--o4:${a[0]};--o2:${a[1]};--o1:${a[2]}`;
 
     const startTile = `
@@ -169,8 +170,8 @@ class TnJourneySection extends HTMLElement {
         <div class="tp-copy"><h3>${s.title}</h3><p>${s.text}</p>
           <div class="tp-actions"><a class="btn btn-primary" href="${site}${s.href}" target="_top">Go to the full stage ${ICON.arrow}</a></div></div>
         <div class="tp-res">
-          <a class="tp-item" href="${site}${s.href}#video" target="_top"><span class="ic">${ICON.play}</span><span><b>${s.video}</b><small>Short video · 3–5 minutes</small> <span class="chip vid">Video · coming soon</span></span></a>
-          <a class="tp-item" href="${site}resources.html" target="_top"><span class="ic">${ICON.pdf}</span><span><b>${s.pdf}</b><small>PDF download</small> <span class="chip ${s.pdfChip[0]}">${s.pdfChip[1]}</span></span></a>
+          <a class="tp-item" href="${site}${s.href}" target="_top"><span class="ic">${ICON.play}</span><span><b>${s.video}</b><small>Short video · 3–5 minutes</small> <span class="chip vid">Video · coming soon</span></span></a>
+          <a class="tp-item" href="${site}tools-downloads" target="_top"><span class="ic">${ICON.pdf}</span><span><b>${s.pdf}</b><small>PDF download</small> <span class="chip ${s.pdfChip[0]}">${s.pdfChip[1]}</span></span></a>
         </div>
       </div>`).join('');
 
