@@ -39,10 +39,10 @@ const ITEMS = [
 
 const CSS = `
 :host{display:block;
-  /* PROVISIONAL palette — swap when Belle's branding kit is confirmed */
-  --light-blue:#29aacb;--light-blue-tint:#e3f4f9;--deep-blue:#0d6d8a;
-  --yellow:#f5ce2e;--ochre:#cc8a1c;
-  --ink:#15313d;--ink-2:#44606b;--line:#d3e3e9;--paper:#fff;
+  /* True North branding kit palette */
+  --light-blue:#3BADCC;--light-blue-tint:#e3f4f9;--deep-blue:#0d6d8a;
+  --yellow:#F6D033;--ochre:#B66B42;
+  --ink:#193A57;--ink-2:#46617a;--line:#C9DDE3;--paper:#fff;
   --display:wfont_b6fd1f_4e6e90d1a8004009a6ecd2f68ad2add6,wf_4e6e90d1a8004009a6ecd2f68,orig_arial_narrow_bold,"Arial Narrow",Arial,sans-serif;
   --gutter:clamp(12px,3vw,40px)}
 *{box-sizing:border-box}

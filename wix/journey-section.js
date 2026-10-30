@@ -70,8 +70,8 @@ const ICON = {
 const CSS = `
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"); /* fallback only; the Wix site fonts are used when present */
 :host{display:block;
-  --blue:#29aacb;--blue-deep:#0d6d8a;--blue-ink:#0b4458;--yellow:#f5ce2e;--yellow-soft:#fdf3c4;
-  --ink:#15313d;--ink-2:#44606b;--ink-3:#6f8790;--mist:#f1f7f9;--line:#d3e3e9;
+  --blue:#3BADCC;--blue-deep:#0d6d8a;--blue-ink:#12304a;--yellow:#F6D033;--yellow-soft:#fdf3c4;
+  --ink:#193A57;--ink-2:#46617a;--ink-3:#566e82;--mist:#eef5f8;--line:#C9DDE3;
   --display:wfont_b6fd1f_4e6e90d1a8004009a6ecd2f68ad2add6,wf_4e6e90d1a8004009a6ecd2f68,orig_arial_narrow_bold,"Arial Narrow",Arial,sans-serif;
   --body:wfont_069f35_23de2075afcc42cc848bac4f05c000f8,wf_23de2075afcc42cc848bac4f0,orig_roboto,Roboto,"Segoe UI",Helvetica,Arial,sans-serif;
   --mono:var(--body);
@@ -90,11 +90,11 @@ h2{font-size:clamp(2.2rem,5vw,3.2rem);text-transform:uppercase}
 .btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--display);font-weight:700;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:.72em 1.3em;border-radius:3px;border:2px solid transparent;line-height:1.1;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
 .btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent;white-space:nowrap}
 .btn-ghost:hover{background:var(--ink);color:#fff}
-.btn-primary{background:var(--blue);color:#fff}
-.btn-primary:hover{background:var(--blue-deep)}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:var(--blue);color:var(--ink)}
 .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .tile{order:var(--o4);display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;text-decoration:none;color:var(--ink);cursor:pointer;transition:border-color .2s,transform .2s,box-shadow .2s}
-.tile:hover,.tile[aria-expanded="true"]{border-color:var(--blue);box-shadow:0 18px 34px -22px rgba(11,68,88,.5)}
+.tile:hover,.tile[aria-expanded="true"]{border-color:var(--blue);box-shadow:0 18px 34px -22px rgba(25,58,87,.5)}
 .tile:hover{transform:translateY(-3px)}
 .tile[aria-expanded="true"]{outline:2px solid var(--yellow);outline-offset:-2px}
 .t-img{display:block;aspect-ratio:16/10;overflow:hidden;background:var(--mist)}
@@ -129,7 +129,7 @@ h2{font-size:clamp(2.2rem,5vw,3.2rem);text-transform:uppercase}
 .chip{display:inline-flex;align-items:center;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:.28em .6em;border-radius:2px;background:var(--mist);color:var(--ink-2);white-space:nowrap}
 .chip.free{background:var(--yellow-soft);color:#6b5400}
 .chip.vid{background:#dff1f7;color:var(--blue-ink)}
-.chip.soon{background:#eef1f2;color:var(--ink-3)}
+.chip.soon{background:#eef1f2;color:var(--ink-2)}
 a:focus-visible,button:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
 @media (max-width:1000px){.tiles{grid-template-columns:repeat(2,1fr)}.tile{order:var(--o2)}.tile-panel{order:var(--o2);grid-template-columns:1fr}}
 @media (max-width:760px){.head{grid-template-columns:1fr}.btn-ghost{justify-self:start}}

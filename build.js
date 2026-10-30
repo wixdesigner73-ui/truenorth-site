@@ -36,12 +36,12 @@ const SPRITE = `<svg width="0" height="0" style="position:absolute" aria-hidden=
 
 const COMPASS = `<svg viewBox="0 0 120 120">
           <circle cx="60" cy="60" r="56" fill="#fff" stroke="#d3e3e9" stroke-width="2"/>
-          <g stroke="#15313d" stroke-width="1.2"><path d="M60 8v8M60 104v8M8 60h8M104 60h8"/></g>
+          <g stroke="#193A57" stroke-width="1.2"><path d="M60 8v8M60 104v8M8 60h8M104 60h8"/></g>
           <g stroke="#9fb6be" stroke-width="1"><path d="M23.2 23.2l4 4M92.8 23.2l-4 4M23.2 96.8l4-4M92.8 96.8l-4-4"/></g>
-          <text x="60" y="30" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="15" fill="#15313d">N</text>
-          <text x="60" y="100" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" fill="#6f8790">TN 000°</text>
-          <g class="needle"><g class="wobble"><path d="M60 22l6 38h-12z" fill="#29aacb"/><path d="M60 98l6-38h-12z" fill="#15313d" opacity=".25"/><text x="60" y="18" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.5" fill="#0d6d8a">MN</text></g></g>
-          <circle cx="60" cy="60" r="5" fill="#f5ce2e" stroke="#15313d" stroke-width="1.5"/>
+          <text x="60" y="30" text-anchor="middle" font-family="Roboto Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="15" fill="#193A57">N</text>
+          <text x="60" y="100" text-anchor="middle" font-family="Roboto Mono,monospace" font-size="7" fill="#6f8790">TN 000°</text>
+          <g class="needle"><g class="wobble"><path d="M60 22l6 38h-12z" fill="#3BADCC"/><path d="M60 98l6-38h-12z" fill="#193A57" opacity=".25"/><text x="60" y="18" text-anchor="middle" font-family="Roboto Mono,monospace" font-size="6.5" fill="#0d6d8a">MN</text></g></g>
+          <circle cx="60" cy="60" r="5" fill="#f5ce2e" stroke="#193A57" stroke-width="1.5"/>
         </svg>`;
 
 const NAV = [
@@ -73,7 +73,7 @@ function layout({ file, title, desc, section, body, searchCat = 'Page', keywords
 <meta name="description" content="${desc}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Roboto+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="css/site.css">
 <link rel="icon" href="img/logo.png">
 </head>
