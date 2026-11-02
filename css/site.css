@@ -612,3 +612,30 @@ footer{background:var(--ink);color:#b8d0d9;font-size:.92rem;border-top:1px solid
   .tp-copy h3{padding-right:40px}
 }
 .tp-item b{display:block}
+
+/* =====================================================================
+   HOME BANNER — "Start Here" + the 7 stages as the hero
+   ===================================================================== */
+.hero-banner{position:relative;overflow:hidden;background:radial-gradient(1100px 420px at 85% -10%,rgba(59,173,204,.28),transparent 70%),var(--ink);color:#fff;padding:clamp(26px,3.4vw,40px) 0 clamp(36px,4.5vw,56px)}
+.hero-banner .wrap{position:relative;z-index:1;display:grid;gap:clamp(16px,2vw,22px)}
+.hb-arc{position:absolute;right:3%;top:0;width:min(30vw,420px);height:auto;opacity:.9;pointer-events:none}
+@media (max-width:900px){.hb-arc{display:none}}
+.hb-copy{display:grid;gap:10px;max-width:880px}
+.hero-banner .eyebrow{color:var(--yellow)}
+.hero-banner h1{font-size:clamp(2rem,3.9vw,3.1rem);line-height:1.02;max-width:26ch}
+.hero-banner h1 em{font-style:normal;color:var(--yellow)}
+.hb-lede{margin:0;font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.5;color:#dbe8ef;max-width:78ch}
+.hb-points{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px;color:#fff;font-size:.95rem}
+.hb-points li{display:flex;align-items:center;gap:.5em}
+.hb-points li::before{content:"";width:9px;height:9px;background:var(--yellow);transform:rotate(45deg);flex:none}
+.hb-label{margin:0;font-family:var(--display);font-weight:600;font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase;color:var(--coastal)}
+.hero-banner .tile .t-img{aspect-ratio:16/7}
+.hero-banner .tile-panel{color:var(--ink)}
+@media (max-width:760px){.hb-points li:nth-child(n+2){display:none}}
+.hero-banner .tile .t-txt{padding:11px 14px}
+.hero-banner .tile-start{background:var(--yellow);border-color:var(--yellow);border-left:6px solid var(--blue);color:var(--ink)}
+.hero-banner .tile-start .t-sub{color:var(--ink)}
+.hero-banner .tile-start .go-dot{background:var(--ink);color:var(--yellow)}
+.hero-banner .tile-start:hover,.hero-banner .tile-start[aria-expanded="true"]{background:#fff;border-color:var(--yellow);border-left-color:var(--blue)}
+.hero-banner .tile:hover{border-color:var(--yellow)}
+@media (max-width:1000px){.hero-banner .tile .t-img{aspect-ratio:16/9}}

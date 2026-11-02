@@ -79,7 +79,7 @@ const CSS = `
 *{box-sizing:border-box}
 .icon{width:18px;height:18px;flex:none}
 .section{background:var(--mist);padding:clamp(52px,7vw,96px) 0;font-family:var(--body);font-size:17px;line-height:1.6;color:var(--ink);-webkit-font-smoothing:antialiased}
-.wrap{max-width:1200px;margin-inline:auto;padding-inline:var(--gutter)}
+.wrap{width:100%;padding-inline:3%}
 .head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:14px;margin-bottom:clamp(24px,4vw,44px)}
 .head>div{display:grid;gap:14px}
 .eyebrow{margin:0;font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-deep);display:flex;align-items:center;gap:.6em}

@@ -224,56 +224,17 @@ function journeyTiles() {
 
 /* ================================================================== HOME */
 function home() {
-  const slides = [
-    { k: 'home', bg: 'img/bg-home.jpg', alt: 'A True North designed home with skillion roofs set among native trees', fx: '55%',
-      html: `<p class="kicker reveal" style="--d:.1s">For home builders, owner builders &amp; renovators</p>
-          <h1>${lines(['Avoid costly', 'building mistakes', '<em>before they happen.</em>'])}</h1>
-          <p class="sub reveal" style="--d:.7s">Independent guidance, practical tools and proven information for Australians planning to build, renovate or buy property — backed by more than 40 years of real building experience.</p>
-          <div class="actions reveal" style="--d:.85s"><a class="btn btn-yellow" href="journey.html">Start your building journey ${ic('arrow')}</a><a class="btn btn-light" href="resources.html">Browse tools &amp; downloads</a></div>` },
-    ...STAGES.map(s => ({ k: s.k, bg: s.bg, alt: s.bgAlt, n: s.n,
-      html: `<p class="kicker reveal" style="--d:.1s">Stage ${String(s.n).padStart(2, '0')} of 07 · ${s.name}</p>
-          <h2>${lines(s.title)}</h2>
-          <p class="sub reveal" style="--d:.6s">${s.intro}</p>
-          <div class="topics reveal" style="--d:.75s">${s.topics.slice(0, 4).map(t => `<span>${t}</span>`).join('')}</div>
-          <div class="actions reveal" style="--d:.9s"><a class="btn btn-yellow" href="${s.slug}">Explore ${shortName(s)} ${ic('arrow')}</a><a class="btn btn-light" href="journey.html">All 7 stages</a></div>` }))
-  ];
-
-  const slider = `<section class="slider" aria-roledescription="carousel" aria-label="True North and the seven-stage homeowner journey" style="--dur:9s">
-  <div class="slides">
-${slides.map((s, i) => `    <div class="slide${i === 0 ? ' is-active' : ''}" role="group" aria-roledescription="slide" aria-label="${i === 0 ? 'Introduction' : 'Stage ' + s.n + ' of 7'}" id="slide-${s.k}"${i ? ' aria-hidden="true"' : ''}>
-      <div class="bg">
-        <!-- VIDEO OPTION: replace the <img> with
-             <video src="video/${s.k}.mp4" poster="${s.bg}" muted playsinline loop preload="metadata"></video> -->
-        <img src="${s.bg}" alt="" ${i ? 'loading="lazy"' : 'fetchpriority="high"'} style="--fx:${s.fx || '50%'}">
-      </div>
-      ${s.n ? `<span class="big-stage" aria-hidden="true">0${s.n}</span>` : ''}
-      <div class="content">
-          ${s.html}
-      </div>
-    </div>`).join('\n')}
-  </div>
-
-  <div class="hero-fx" aria-hidden="true">
-    <svg class="path" viewBox="0 0 660 340">
-      <path class="arc" d="M20 300 Q330 -60 640 300"/>
-      <path class="arc-solid" d="M20 300 Q330 -60 640 300"/>
-      <circle class="sun-glow" r="34" cx="0" cy="0"/>
-      <circle class="sun" r="14" cx="0" cy="0"/>
-    </svg>
-    <div class="compass">${COMPASS}</div>
-  </div>
-
-  <div class="s-ui">
-    <div class="wrap">
-      <div class="s-tabs" role="tablist" aria-label="Choose a slide">
-        ${slides.map((s, i) => `<button class="s-tab" role="tab" aria-controls="slide-${s.k}" aria-selected="${i === 0}" ${i ? 'tabindex="-1"' : ''}><span class="bar"><i></i></span><span class="t">${i === 0 ? '<b>★</b><span>Welcome</span>' : `<b>0${s.n}</b><span>${shortName(stageBy[s.k])}</span>`}</span></button>`).join('\n        ')}
-      </div>
-      <div class="s-btns">
-        <button class="s-btn s-prev" aria-label="Previous slide">${ic('left')}</button>
-        <button class="s-btn s-pause" aria-label="Pause slideshow">${ic('pause')}</button>
-        <button class="s-btn s-next" aria-label="Next slide">${ic('arrow')}</button>
-      </div>
+  const hero = `<section class="hero-banner" id="journey" aria-labelledby="hb-title">
+  <svg class="hb-arc" viewBox="0 0 400 200" aria-hidden="true"><path d="M10 192Q200 -64 390 192" fill="none" stroke="rgba(246,208,51,.5)" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round"/><circle cx="268" cy="40" r="9" fill="#F6D033"/></svg>
+  <div class="wrap">
+    <div class="hb-copy">
+      <p class="eyebrow reveal" style="--d:.05s">Independent building education for Australians</p>
+      <h1 id="hb-title" class="reveal" style="--d:.15s">Avoid costly building mistakes <em>before they happen.</em></h1>
+      <p class="hb-lede reveal" style="--d:.3s">Buying, building and owning a home has never cost more. With the right advice, tools and systems, some people can still get there. Start at the stage that matches where you are.</p>
+      <ul class="hb-points reveal" style="--d:.4s"><li>Independent: we don’t build, and we’re not selling you one</li><li>Seven stages, from finding land to handover</li><li>Short videos, checklists and practical tools</li></ul>
     </div>
+    <p class="hb-label">Where are you in your project?</p>
+    ${journeyTiles()}
   </div>
 </section>`;
 
@@ -284,7 +245,7 @@ ${slides.map((s, i) => `    <div class="slide${i === 0 ? ' is-active' : ''}" rol
     ['Home Energy Audit', 'Basic, Standard and Advanced audits for homes on the NSW South Coast.', 'img/ph-headland-dining.jpg', 'service', 'energy-audit.html']
   ];
 
-  const body = `${slider}
+  const body = `${hero}
 
 <div class="proof">
   <div class="wrap">
@@ -305,16 +266,6 @@ ${slides.map((s, i) => `    <div class="slide${i === 0 ? ' is-active' : ''}" rol
       <p class="big">TRUE NORTH<sup>®</sup> helps aspiring home builders <strong>make informed decisions, avoid costly mistakes</strong> and move confidently from finding land through design, costing, contracts, construction and handover.</p>
       <p class="lede">We provide practical, independent guidance, proven checklists and easy-to-use tools based on more than 40 years of real building experience. We no longer design or build — we share what we learned.</p>
     </div>
-  </div>
-</section>
-
-<section class="section tint" id="journey">
-  <div class="wrap">
-    <div class="section-head row sr-reveal">
-      <div style="display:grid;gap:14px"><p class="eyebrow">The seven-stage homeowner journey</p><h2>Where are you in your project?</h2><p class="lede">Choose your stage. Each one has a short overview, common mistakes, practical steps and the guides and tools that help.</p></div>
-      <a class="btn btn-ghost" href="journey.html">See the full journey</a>
-    </div>
-    ${journeyTiles()}
   </div>
 </section>
 
