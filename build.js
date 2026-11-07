@@ -96,7 +96,7 @@ ${SPRITE}
     </a>
     <nav class="nav" id="nav" aria-label="Main">
       ${nav}
-      <a href="start-here.html" class="start"${section === 'start' ? ' aria-current="page"' : ''}>Start Here</a>
+      ${section === 'home' ? '' : `<a href="start-here.html" class="start"${section === 'start' ? ' aria-current="page"' : ''}>Start Here</a>`}
     </nav>
     <button class="icon-btn search-btn" data-open-search aria-label="Search the site">${ic('search')}</button>
     <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">${ic('menu')}</button>
@@ -225,15 +225,11 @@ function journeyTiles() {
 /* ================================================================== HOME */
 function home() {
   const hero = `<section class="hero-banner" id="journey" aria-labelledby="hb-title">
-  <svg class="hb-arc" viewBox="0 0 400 200" aria-hidden="true"><path d="M10 192Q200 -64 390 192" fill="none" stroke="rgba(246,208,51,.5)" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round"/><circle cx="268" cy="40" r="9" fill="#F6D033"/></svg>
   <div class="wrap">
     <div class="hb-copy">
-      <p class="eyebrow reveal" style="--d:.05s">Independent building education for Australians</p>
-      <h1 id="hb-title" class="reveal" style="--d:.15s">Avoid costly building mistakes <em>before they happen.</em></h1>
-      <p class="hb-lede reveal" style="--d:.3s">Buying, building and owning a home has never cost more. With the right advice, tools and systems, some people can still get there. Start at the stage that matches where you are.</p>
-      <ul class="hb-points reveal" style="--d:.4s"><li>Independent: we don’t build, and we’re not selling you one</li><li>Seven stages, from finding land to handover</li><li>Short videos, checklists and practical tools</li></ul>
+      <h1 id="hb-title" class="reveal" style="--d:.1s">Avoid costly building mistakes.</h1>
+      <p class="hb-lede reveal" style="--d:.2s">Independent advice, practical guides and tools to help you build or renovate with confidence.</p>
     </div>
-    <p class="hb-label">Where are you in your project?</p>
     ${journeyTiles()}
   </div>
 </section>`;
